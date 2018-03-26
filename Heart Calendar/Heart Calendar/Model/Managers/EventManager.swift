@@ -21,18 +21,21 @@ class EventManager {
     }
 
     struct Calendar {
-        let title: String
-        let identifier: String
 
-        let color: UIColor
-        fileprivate let ekCalendar: EKCalendar
+        fileprivate let calendar: EKCalendar
+
+        var title: String {
+            return calendar.title
+        }
+        var identifier: String {
+            return calendar.calendarIdentifier
+        }
+        var color: UIColor {
+            return UIColor(cgColor: calendar.cgColor)
+        }
 
         init(_ calendar: EKCalendar) {
-            self.title = calendar.title
-            self.identifier = calendar.calendarIdentifier
-
-            self.color = UIColor(cgColor: calendar.cgColor)
-            self.ekCalendar = calendar
+            self.calendar = calendar
         }
     }
 
@@ -57,13 +60,13 @@ class EventManager {
     func events(between startDate: Date, and endDate: Date) -> [Event] {
         var calendarIdentifiers = PreferencesManager.shared.calendarIdentifiers
         if calendarIdentifiers == nil {
-            calendarIdentifiers = calendars().map { $0.ekCalendar.calendarIdentifier }
+            calendarIdentifiers = calendars().map { $0.calendar.calendarIdentifier }
             PreferencesManager.shared.calendarIdentifiers = calendarIdentifiers
         }
 
         guard let calendarIDs = calendarIdentifiers, !calendarIDs.isEmpty else { return [] }
         let selectedCalendars = calendars()
-            .map({ $0.ekCalendar })
+            .map({ $0.calendar })
             .filter({ calendarIDs.contains($0.calendarIdentifier) })
 
         let predicate = eventStore.predicateForEvents(withStart: startDate,

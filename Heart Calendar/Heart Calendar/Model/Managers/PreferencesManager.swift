@@ -45,7 +45,7 @@ class PreferencesManager {
 
         var description: String {
             switch self {
-            case .highest:  return "Highest to lowest by heart rate"
+            case .highest:  return "Highest to lowest by BPM"
             case .lowest:   return "Lowest to highest by BPM"
             case .newest:   return "Most recent first"
             case .oldest:   return "Oldest first"

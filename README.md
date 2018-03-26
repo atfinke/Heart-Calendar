@@ -1,5 +1,5 @@
-# heart-cal
+# Heart Calendar
 
-Correlates ave heart rate with calendar events.
+See your average heart rate for calendar events
 
-![screenshot](https://raw.githubusercontent.com/atfinke/heart-cal/master/Resources/image.jpg)
+![screenshot](https://raw.githubusercontent.com/atfinke/heart-cal/master/Resources/screenshot.jpeg)

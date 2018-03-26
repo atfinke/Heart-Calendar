@@ -15,6 +15,7 @@ class EventTableViewController: UITableViewController {
     // MARK: - Properties
 
     let model = Model()
+    var isUpdatingModel = true
 
     let formatter: DateIntervalFormatter = {
         let formatter = DateIntervalFormatter()
@@ -41,7 +42,6 @@ class EventTableViewController: UITableViewController {
                     self.reload(completion: nil)
                 }
             }
-
         }
 
         let refreshControl = UIRefreshControl()
@@ -91,12 +91,25 @@ class EventTableViewController: UITableViewController {
     }
 
     func reload(completion: (() -> Void)?) {
+        isUpdatingModel = true
+        let startDate = Date()
         DispatchQueue.global(qos: .userInitiated).async {
             self.model.update {
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.tableView.refreshControl?.endRefreshing()
-                    completion?()
+                    func complete() {
+                        self.isUpdatingModel = false
+                        self.tableView.reloadData()
+                        self.tableView.refreshControl?.endRefreshing()
+                        completion?()
+                    }
+
+                    if -startDate.timeIntervalSinceNow < 0.5 {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                            complete()
+                        })
+                    } else {
+                        complete()
+                    }
                 }
             }
         }

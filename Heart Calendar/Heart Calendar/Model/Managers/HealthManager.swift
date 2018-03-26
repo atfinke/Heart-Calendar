@@ -17,9 +17,9 @@ class HealthManager {
 
         // MARK: - Properties
 
-        let min: Double
-        let max: Double
-        let average: Double
+        let min: Int
+        let max: Int
+        let average: Int
 
         let startDate: Date
         let endDate: Date
@@ -35,9 +35,9 @@ class HealthManager {
                     return nil
             }
 
-            self.min = min
-            self.max = max
-            self.average = average
+            self.min = Int(min)
+            self.max = Int(max)
+            self.average = Int(average)
 
             self.startDate = startDate
             self.endDate = endDate

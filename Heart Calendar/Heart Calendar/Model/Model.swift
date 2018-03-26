@@ -67,6 +67,13 @@ class Model {
                 }
 
                 if newNoDataEvents.count + newValidEvents.count == calendarEvents.count {
+                    let nameSortFunction: (Model.HeartRateEvent, Model.HeartRateEvent) -> Bool = { (lhs, rhs) -> Bool in
+                        return lhs.event.title < rhs.event.title
+                    }
+
+                    newValidEvents = newValidEvents.sorted(by: nameSortFunction)
+                    newNoDataEvents = newNoDataEvents.sorted(by: nameSortFunction)
+
                     let sortFunction: (Model.HeartRateEvent, Model.HeartRateEvent) -> Bool
                     switch PreferencesManager.shared.sortStyle {
 
@@ -89,9 +96,7 @@ class Model {
                     }
 
                     self.validEvents = newValidEvents.sorted(by: sortFunction)
-                    self.noDataEvents = newNoDataEvents.sorted(by: { (lhs, rhs) -> Bool in
-                        return lhs.event.title < rhs.event.title
-                    })
+                    self.noDataEvents = newNoDataEvents
                     completion()
                 }
             })

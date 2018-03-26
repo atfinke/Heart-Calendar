@@ -50,14 +50,14 @@
 		14837BB12068B0A6003F3A0C /* fabric.buildsecret */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fabric.buildsecret; sourceTree = SOURCE_ROOT; };
 		14837BB52068B0EF003F3A0C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		14837BB62068B0EF003F3A0C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
-		14CCF3C9202BA99C00DCFF48 /* Heart Cal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Heart Cal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14CCF3C9202BA99C00DCFF48 /* Heart Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Heart Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14CCF3CC202BA99C00DCFF48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14CCF3D1202BA99C00DCFF48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14CCF3D3202BA99C00DCFF48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14CCF3D6202BA99C00DCFF48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14CCF3D8202BA99C00DCFF48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14CCF3FA202BA9AE00DCFF48 /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
-		14CCF3FC202BACD400DCFF48 /* Heart Cal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Heart Cal.entitlements"; sourceTree = "<group>"; };
+		14CCF3FC202BACD400DCFF48 /* Heart Calendar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Heart Calendar.entitlements"; sourceTree = "<group>"; };
 		14CCF3FE202BACD400DCFF48 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		14CCF400202C086300DCFF48 /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,7 +131,7 @@
 				14CCF3D0202BA99C00DCFF48 /* Main.storyboard */,
 				14CCF3D3202BA99C00DCFF48 /* Assets.xcassets */,
 				14CCF3D5202BA99C00DCFF48 /* LaunchScreen.storyboard */,
-				14CCF3FC202BACD400DCFF48 /* Heart Cal.entitlements */,
+				14CCF3FC202BACD400DCFF48 /* Heart Calendar.entitlements */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -139,7 +139,7 @@
 		14CCF3C0202BA99C00DCFF48 = {
 			isa = PBXGroup;
 			children = (
-				14CCF3CB202BA99C00DCFF48 /* Heart Cal */,
+				14CCF3CB202BA99C00DCFF48 /* Heart Calendar */,
 				14CCF3CA202BA99C00DCFF48 /* Products */,
 				14CCF3FD202BACD400DCFF48 /* Frameworks */,
 			);
@@ -148,12 +148,12 @@
 		14CCF3CA202BA99C00DCFF48 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				14CCF3C9202BA99C00DCFF48 /* Heart Cal.app */,
+				14CCF3C9202BA99C00DCFF48 /* Heart Calendar.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		14CCF3CB202BA99C00DCFF48 /* Heart Cal */ = {
+		14CCF3CB202BA99C00DCFF48 /* Heart Calendar */ = {
 			isa = PBXGroup;
 			children = (
 				146C04D5206870D1005B58DE /* Views */,
@@ -162,7 +162,7 @@
 				146C04F52068AE66005B58DE /* Resources */,
 				14CCF3D8202BA99C00DCFF48 /* Info.plist */,
 			);
-			path = "Heart Cal";
+			path = "Heart Calendar";
 			sourceTree = "<group>";
 		};
 		14CCF3FD202BACD400DCFF48 /* Frameworks */ = {
@@ -176,9 +176,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		14CCF3C8202BA99C00DCFF48 /* Heart Cal */ = {
+		14CCF3C8202BA99C00DCFF48 /* Heart Calendar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 14CCF3F1202BA99C00DCFF48 /* Build configuration list for PBXNativeTarget "Heart Cal" */;
+			buildConfigurationList = 14CCF3F1202BA99C00DCFF48 /* Build configuration list for PBXNativeTarget "Heart Calendar" */;
 			buildPhases = (
 				1413A34020684FC800EB2F71 /* Build Number */,
 				14CCF3C5202BA99C00DCFF48 /* Sources */,
@@ -191,9 +191,9 @@
 			);
 			dependencies = (
 			);
-			name = "Heart Cal";
+			name = "Heart Calendar";
 			productName = "Heart Cal";
-			productReference = 14CCF3C9202BA99C00DCFF48 /* Heart Cal.app */;
+			productReference = 14CCF3C9202BA99C00DCFF48 /* Heart Calendar.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -217,7 +217,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 14CCF3C4202BA99C00DCFF48 /* Build configuration list for PBXProject "Heart Cal" */;
+			buildConfigurationList = 14CCF3C4202BA99C00DCFF48 /* Build configuration list for PBXProject "Heart Calendar" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -230,7 +230,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				14CCF3C8202BA99C00DCFF48 /* Heart Cal */,
+				14CCF3C8202BA99C00DCFF48 /* Heart Calendar */,
 			);
 		};
 /* End PBXProject section */
@@ -451,19 +451,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Heart Cal/Resources/Heart Cal.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Heart Calendar/Resources/Heart Calendar.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72S993BNAV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Heart Cal/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Heart Calendar/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewfinke.Heart-Cal";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewfinke.heart-calendar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -471,26 +471,26 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Heart Cal/Resources/Heart Cal.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Heart Calendar/Resources/Heart Calendar.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72S993BNAV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Heart Cal/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Heart Calendar/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewfinke.Heart-Cal";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewfinke.heart-calendar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		14CCF3C4202BA99C00DCFF48 /* Build configuration list for PBXProject "Heart Cal" */ = {
+		14CCF3C4202BA99C00DCFF48 /* Build configuration list for PBXProject "Heart Calendar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				14CCF3EF202BA99C00DCFF48 /* Debug */,
@@ -499,7 +499,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		14CCF3F1202BA99C00DCFF48 /* Build configuration list for PBXNativeTarget "Heart Cal" */ = {
+		14CCF3F1202BA99C00DCFF48 /* Build configuration list for PBXNativeTarget "Heart Calendar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				14CCF3F2202BA99C00DCFF48 /* Debug */,

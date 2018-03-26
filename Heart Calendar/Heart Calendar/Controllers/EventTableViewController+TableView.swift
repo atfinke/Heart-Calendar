@@ -44,7 +44,9 @@ extension EventTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if noEventsFound() {
-            return tableView.dequeueReusableCell(withIdentifier: "noEventsReuseIdentifier", for: indexPath)
+            let cell =  tableView.dequeueReusableCell(withIdentifier: "noEventsReuseIdentifier", for: indexPath)
+            cell.textLabel?.text = isUpdatingModel ? "Loading Events..." : "No Events Found"
+            return cell
         }
 
         //swiftlint:disable:next line_length

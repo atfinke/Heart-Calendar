@@ -66,5 +66,5 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 
-Heart Cal/fabric.apikey
-Heart Cal/fabric.buildsecret
+Heart Calendar/fabric.apikey
+Heart Calendar/fabric.buildsecret
