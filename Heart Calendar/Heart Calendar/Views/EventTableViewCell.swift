@@ -1,6 +1,6 @@
 //
 //  EventTableViewCell.swift
-//  Heart Cal
+//  Heart Calendar
 //
 //  Created by Andrew Finke on 3/25/18.
 //  Copyright © 2018 Andrew Finke. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventTableViewCell: CalendarTableViewCell {
+class EventTableViewCell: IndicatorTableViewCell {
 
     // MARK: - Properties
 
@@ -37,28 +37,31 @@ class EventTableViewCell: CalendarTableViewCell {
             addSubview(view)
         }
 
+        let rightMarginConstraint = NSLayoutConstraint(item: averageBPMLabel,
+                                                       attribute: .right,
+                                                       relatedBy: .equal,
+                                                       toItem: self,
+                                                       attribute: .rightMargin,
+                                                       multiplier: 1.0,
+                                                       constant: 0.0)
+
         let constraints = [
-            eventTitleLabel.leftAnchor.constraint(equalTo: calendarIndicatorView.rightAnchor,
-                                                  constant: EventTableViewCell.indentConstant),
-            eventTitleLabel.rightAnchor.constraint(equalTo: averageBPMLabel.leftAnchor,
-                                                   constant: -10),
+            eventTitleLabel.leftAnchor.constraint(equalTo: indicatorView.rightAnchor, constant: 15.0),
+            eventTitleLabel.rightAnchor.constraint(equalTo: averageBPMLabel.leftAnchor, constant: -10),
 
             eventTitleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 25),
-            eventTitleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
+            eventTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15),
 
             eventDateLabel.topAnchor.constraint(equalTo: eventTitleLabel.bottomAnchor, constant: 5),
-            eventDateLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15),
+            eventDateLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
             eventDateLabel.leftAnchor.constraint(equalTo: eventTitleLabel.leftAnchor),
             eventDateLabel.rightAnchor.constraint(equalTo: averageBPMLabel.leftAnchor,
                                                   constant: -10),
 
-            averageBPMLabel.topAnchor.constraint(equalTo: self.topAnchor),
-            averageBPMLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-
-            averageBPMLabel.rightAnchor.constraint(equalTo: self.rightAnchor,
-                                                   constant: -EventTableViewCell.indentConstant),
-            averageBPMLabel.widthAnchor.constraint(equalToConstant: 65)
-
+            averageBPMLabel.topAnchor.constraint(equalTo: topAnchor),
+            averageBPMLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            averageBPMLabel.widthAnchor.constraint(equalToConstant: 65),
+            rightMarginConstraint
         ]
 
         NSLayoutConstraint.activate(constraints)

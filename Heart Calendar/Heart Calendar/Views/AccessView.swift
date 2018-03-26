@@ -1,6 +1,6 @@
 //
 //  AccessView.swift
-//  Heart Cal
+//  Heart Calendar
 //
 //  Created by Andrew Finke on 3/25/18.
 //  Copyright © 2018 Andrew Finke. All rights reserved.
@@ -52,7 +52,7 @@ class AccessView: UIView {
 
             button.leftAnchor.constraint(equalTo: descriptionLabel.leftAnchor),
             button.rightAnchor.constraint(equalTo: descriptionLabel.rightAnchor),
-            button.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 30),
+            button.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 15),
             button.bottomAnchor.constraint(equalTo: bottomAnchor),
             button.heightAnchor.constraint(equalToConstant: 50)
         ]

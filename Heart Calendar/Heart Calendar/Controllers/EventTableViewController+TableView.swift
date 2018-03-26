@@ -1,6 +1,6 @@
 //
 //  EventTableViewController+TableView.swift
-//  Heart Cal
+//  Heart Calendar
 //
 //  Created by Andrew Finke on 3/25/18.
 //  Copyright © 2018 Andrew Finke. All rights reserved.
@@ -64,7 +64,7 @@ extension EventTableViewController {
             fatalError()
         }
 
-        cell.calendarIndicatorView.backgroundColor = event.event.calendarColor
+        cell.indicatorView.backgroundColor = event.event.calendarColor
         cell.eventTitleLabel.text = event.event.title
         cell.eventDateLabel.text = formatter.string(from: event.event.startDate, to: event.event.endDate)
 

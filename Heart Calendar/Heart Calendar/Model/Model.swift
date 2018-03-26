@@ -1,12 +1,13 @@
 //
 //  Model.swift
-//  Heart Cal
+//  Heart Calendar
 //
 //  Created by Andrew Finke on 3/25/18.
 //  Copyright © 2018 Andrew Finke. All rights reserved.
 //
 
 import Foundation
+import Crashlytics
 
 class Model {
 
@@ -38,10 +39,13 @@ class Model {
     // MARK: - Methods
 
     func calendars() -> [EventManager.Calendar] {
-        return eventManager.calendars()
+        return eventManager.allStoreCalendars()
     }
 
     func update(completion: @escaping (() -> Void)) {
+        guard !Thread.isMainThread else { fatalError("Called on main thread") }
+        Answers.logCustomEvent(withName: "Model-Update", customAttributes: nil)
+
         var newValidEvents = [HeartRateEvent]()
         var newNoDataEvents = [HeartRateEvent]()
 
@@ -67,41 +71,54 @@ class Model {
                 }
 
                 if newNoDataEvents.count + newValidEvents.count == calendarEvents.count {
-                    let nameSortFunction: (Model.HeartRateEvent, Model.HeartRateEvent) -> Bool = { (lhs, rhs) -> Bool in
-                        return lhs.event.title < rhs.event.title
-                    }
-
-                    newValidEvents = newValidEvents.sorted(by: nameSortFunction)
-                    newNoDataEvents = newNoDataEvents.sorted(by: nameSortFunction)
-
-                    let sortFunction: (Model.HeartRateEvent, Model.HeartRateEvent) -> Bool
-                    switch PreferencesManager.shared.sortStyle {
-
-                    case .highest:
-                        sortFunction = { (lhs, rhs) in
-                            return lhs.measure?.average ?? 0 > rhs.measure?.average ?? 0
-                        }
-                    case .lowest:
-                        sortFunction = { (lhs, rhs) in
-                            return lhs.measure?.average ?? 0 < rhs.measure?.average ?? 0
-                        }
-                    case .newest:
-                        sortFunction = { (lhs, rhs) in
-                            return lhs.event.startDate > rhs.event.startDate
-                        }
-                    case .oldest:
-                        sortFunction = { (lhs, rhs) in
-                            return lhs.event.startDate < rhs.event.startDate
-                        }
-                    }
-
-                    self.validEvents = newValidEvents.sorted(by: sortFunction)
-                    self.noDataEvents = newNoDataEvents
+                    let sorted = self.sort(validEvents: newValidEvents, noDataEvents: newNoDataEvents)
+                    self.validEvents = sorted.validEvents
+                    self.noDataEvents = sorted.noDataEvents
                     completion()
                 }
             })
         }
+    }
 
+    //swiftlint:disable line_length
+    private func sort(validEvents: [HeartRateEvent],
+                      noDataEvents: [HeartRateEvent]) -> (validEvents: [HeartRateEvent], noDataEvents: [HeartRateEvent]) {
+
+        let sortFunction: (Model.HeartRateEvent, Model.HeartRateEvent) -> Bool
+        switch PreferencesManager.shared.sortStyle {
+
+        case .highest:
+            sortFunction = { (lhs, rhs) in
+                let lhsAverage = lhs.measure?.average ?? 0
+                let rhsAverage = rhs.measure?.average ?? 0
+                if lhsAverage == rhsAverage {
+                    return lhs.event > rhs.event
+                } else {
+                    return lhsAverage > rhsAverage
+                }
+            }
+        case .lowest:
+            sortFunction = { (lhs, rhs) in
+                let lhsAverage = lhs.measure?.average ?? 0
+                let rhsAverage = rhs.measure?.average ?? 0
+                if lhsAverage == rhsAverage {
+                    return lhs.event > rhs.event
+                } else {
+                    return lhsAverage < rhsAverage
+                }
+            }
+        case .newest:
+            sortFunction = { (lhs, rhs) in
+                return lhs.event.startDate > rhs.event.startDate
+            }
+        case .oldest:
+            sortFunction = { (lhs, rhs) in
+                return lhs.event.startDate < rhs.event.startDate
+            }
+        }
+
+        return (validEvents: validEvents.sorted(by: sortFunction),
+                noDataEvents: noDataEvents.sorted { $0.event > $1.event })
     }
 
 }

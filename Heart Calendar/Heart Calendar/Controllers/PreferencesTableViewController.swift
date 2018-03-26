@@ -1,6 +1,6 @@
 //
 //  PreferencesTableViewController.swift
-//  Heart Cal
+//  Heart Calendar
 //
 //  Created by Andrew Finke on 3/25/18.
 //  Copyright © 2018 Andrew Finke. All rights reserved.
@@ -27,7 +27,6 @@ class PreferencesTableViewController: UITableViewController {
     private let loadingBarButtonItem: UIBarButtonItem = {
         let activityView = UIActivityIndicatorView(activityIndicatorStyle: .white)
         activityView.sizeToFit()
-        activityView.startAnimating()
         return UIBarButtonItem(customView: activityView)
     }()
 
@@ -35,6 +34,7 @@ class PreferencesTableViewController: UITableViewController {
 
     @IBAction func doneButtonPressed(_ sender: Any) {
         if preferencesUpdated {
+            (loadingBarButtonItem.customView as? UIActivityIndicatorView)?.startAnimating()
             navigationItem.rightBarButtonItem = loadingBarButtonItem
         }
         donePressed?(preferencesUpdated)
@@ -46,8 +46,9 @@ class PreferencesTableViewController: UITableViewController {
         preferencesUpdated = true
         UISelectionFeedbackGenerator().selectionChanged()
 
+        let description = PreferencesManager.shared.shouldHideEmptyEvents.description
         Answers.logCustomEvent(withName: "Preferences-HideEmptyEvents",
-                               customAttributes: ["HideEmptyEvents": PreferencesManager.shared.shouldHideEmptyEvents])
+                               customAttributes: ["HideEmptyEvents": description])
     }
 
 }

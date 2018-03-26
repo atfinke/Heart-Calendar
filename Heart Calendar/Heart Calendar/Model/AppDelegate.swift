@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Heart Cal
+//  Heart Calendar
 //
 //  Created by Andrew Finke on 2/7/18.
 //  Copyright © 2018 Andrew Finke. All rights reserved.

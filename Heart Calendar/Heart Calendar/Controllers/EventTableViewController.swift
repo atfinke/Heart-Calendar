@@ -1,6 +1,6 @@
 //
 //  EventTableViewController.swift
-//  Heart Cal
+//  Heart Calendar
 //
 //  Created by Andrew Finke on 3/25/18.
 //  Copyright © 2018 Andrew Finke. All rights reserved.
@@ -55,20 +55,17 @@ class EventTableViewController: UITableViewController {
 
         if PreferencesManager.shared.completedSetup {
             model.authorizeEvents { eventSuccess, _ in
-                if eventSuccess {
-                    self.model.authorizeHealth { healthSuccess, _ in
-                        if healthSuccess {
-                            self.reload(completion: nil)
-                        } else {
-                            self.presentAlert(title: AlertConstants.healthTitle,
-                                              message: AlertConstants.healthMessage)
-                        }
+                self.model.authorizeHealth { healthSuccess, _ in
+                    if !eventSuccess {
+                        self.presentAlert(title: AlertConstants.calendarTitle,
+                                          message: AlertConstants.calendarMessage)
+                    } else if !healthSuccess {
+                        self.presentAlert(title: AlertConstants.healthTitle,
+                                          message: AlertConstants.healthMessage)
                     }
-                } else {
-                    self.presentAlert(title: AlertConstants.calendarTitle,
-                                      message: AlertConstants.calendarMessage)
                 }
             }
+
         } else {
             let controller = SetupViewController()
             controller.model = model
@@ -93,13 +90,19 @@ class EventTableViewController: UITableViewController {
     func reload(completion: (() -> Void)?) {
         isUpdatingModel = true
         let startDate = Date()
+
         DispatchQueue.global(qos: .userInitiated).async {
             self.model.update {
                 DispatchQueue.main.async {
                     func complete() {
                         self.isUpdatingModel = false
+
                         self.tableView.reloadData()
                         self.tableView.refreshControl?.endRefreshing()
+
+                        let lastIndex = PreferencesManager.shared.shouldHideEmptyEvents ? 0 : 1
+                        self.tableView.reloadSections(IndexSet(integersIn: 0...lastIndex), with: .automatic)
+
                         completion?()
                     }
 
@@ -145,9 +148,12 @@ class EventTableViewController: UITableViewController {
             reviewTimer?.invalidate()
             reviewTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false, block: { _ in
                 DispatchQueue.main.async {
-                    if self.preferencesController == nil {
+                    if self.preferencesController == nil &&
+                        -PreferencesManager.shared.lastPromptDate.timeIntervalSinceNow > 60 * 60 * 2 {
+                        PreferencesManager.shared.lastPromptDate = Date()
                         SKStoreReviewController.requestReview()
                     }
+                    print(-PreferencesManager.shared.lastPromptDate.timeIntervalSinceNow)
                 }
             })
         }
@@ -163,8 +169,10 @@ class EventTableViewController: UITableViewController {
             DispatchQueue.main.async {
                 self?.reload(completion: {
                     self?.dismiss(animated: true, completion: nil)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                        self?.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                        if let indexPath = self?.tableView.indexPathForRow(at: .zero) {
+                            self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+                        }
                     })
                     scheduleReview()
                 })

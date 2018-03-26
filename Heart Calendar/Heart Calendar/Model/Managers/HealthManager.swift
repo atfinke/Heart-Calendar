@@ -1,6 +1,6 @@
 //
 //  HealthManager.swift
-//  Heart Cal
+//  Heart Calendar
 //
 //  Created by Andrew Finke on 2/7/18.
 //  Copyright © 2018 Andrew Finke. All rights reserved.
@@ -17,10 +17,7 @@ class HealthManager {
 
         // MARK: - Properties
 
-        let min: Int
-        let max: Int
         let average: Int
-
         let startDate: Date
         let endDate: Date
 
@@ -29,16 +26,11 @@ class HealthManager {
         fileprivate init?(statistics: HKStatistics, startDate: Date, endDate: Date) {
             let unit = HKUnit.count().unitDivided(by: HKUnit.minute())
 
-            guard let average = statistics.averageQuantity()?.doubleValue(for: unit),
-                let min = statistics.minimumQuantity()?.doubleValue(for: unit),
-                let max = statistics.maximumQuantity()?.doubleValue(for: unit) else {
-                    return nil
+            guard let average = statistics.averageQuantity()?.doubleValue(for: unit) else {
+                return nil
             }
 
-            self.min = Int(min)
-            self.max = Int(max)
             self.average = Int(average)
-
             self.startDate = startDate
             self.endDate = endDate
         }
@@ -70,9 +62,7 @@ class HealthManager {
 
         let query = HKStatisticsQuery(quantityType: heartQuantityType,
                                       quantitySamplePredicate: predicate,
-                                      options: [.discreteAverage,
-                                                .discreteMin,
-                                                .discreteMax]) { (_, statistics, error) in
+                                      options: [.discreteAverage]) { (_, statistics, error) in
 
                                                     guard error == nil, let statistics = statistics else {
                                                         completion(nil)
@@ -86,6 +76,29 @@ class HealthManager {
 
         }
         healthStore.execute(query)
+
+//        let unit = HKUnit.count().unitDivided(by: HKUnit.minute())
+//        let anchoredQuery = HKAnchoredObjectQuery(type: heartQuantityType,
+//                                                  predicate: predicate,
+//                                                  anchor: nil,
+//                                                  limit: 0) { (_, samples, _, _, error) in
+//
+//
+//                                                    guard error == nil, let samples = samples else {
+//                                                        completion(nil)
+//                                                        return
+//                                                    }
+//
+//                                                    let quantitySample = samples.flatMap({ $0 as? HKQuantitySample })
+//
+//                                                    var totalBeats = 0.0
+//                                                    for sample in quantitySample {
+//                                                        let heartBeats = sample.quantity.doubleValue(for: unit)
+//                                                        totalBeats += heartBeats
+//                                                    }
+//                                                    let average = totalBeats / quantitySample.count
+//        }
+//        healthStore.execute(anchoredQuery)
     }
 
 }

@@ -1,6 +1,6 @@
 //
 //  CalendarTableViewCell.swift
-//  Heart Cal
+//  Heart Calendar
 //
 //  Created by Andrew Finke on 3/25/18.
 //  Copyright © 2018 Andrew Finke. All rights reserved.
@@ -8,46 +8,41 @@
 
 import UIKit
 
-class CalendarTableViewCell: UITableViewCell {
+class CalendarTableViewCell: IndicatorTableViewCell {
 
     // MARK: - Properties
 
-    let calendarIndicatorView = UIView()
-    static let indentConstant: CGFloat = 18.0
+    let calendarTitleLabel = UILabel()
+    static let reuseIdentifier = "calendarReuseIdentifier"
 
-    // MARK: - Initalization
+    // MARK: - Initialization
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
-        calendarIndicatorView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(calendarIndicatorView)
+        overrideIndicatorWidth(width: 7)
+
+        calendarTitleLabel.numberOfLines = 0
+        calendarTitleLabel.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        calendarTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(calendarTitleLabel)
+
+        let leftMarginConstraint = NSLayoutConstraint(item: calendarTitleLabel,
+                                                      attribute: .left,
+                                                      relatedBy: .equal,
+                                                      toItem: self,
+                                                      attribute: .leftMargin,
+                                                      multiplier: 1.0,
+                                                      constant: 0.0)
 
         let constraints = [
-            calendarIndicatorView.leftAnchor.constraint(equalTo: self.leftAnchor),
-            calendarIndicatorView.widthAnchor.constraint(equalToConstant: 18.0),
-            calendarIndicatorView.heightAnchor.constraint(equalTo: self.heightAnchor)
+            leftMarginConstraint,
+            // 50 for the checkmark
+            calendarTitleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -50),
+            calendarTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15),
+            calendarTitleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15)
         ]
 
         NSLayoutConstraint.activate(constraints)
     }
-
-    // MARK: - Overrides
-
-    func overrideIndicatorWidth(width: CGFloat) {
-        NSLayoutConstraint.deactivate(calendarIndicatorView.constraints)
-        let constraints = [
-            calendarIndicatorView.leftAnchor.constraint(equalTo: self.leftAnchor),
-            calendarIndicatorView.widthAnchor.constraint(equalToConstant: width),
-            calendarIndicatorView.heightAnchor.constraint(equalTo: self.heightAnchor)
-        ]
-        NSLayoutConstraint.activate(constraints)
-    }
-
-    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        let color = calendarIndicatorView.backgroundColor
-        super.setHighlighted(highlighted, animated: animated)
-        calendarIndicatorView.backgroundColor = color
-    }
-
 }

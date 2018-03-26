@@ -1,6 +1,6 @@
 //
 //  PreferencesManager.swift
-//  Heart Cal
+//  Heart Calendar
 //
 //  Created by Andrew Finke on 3/25/18.
 //  Copyright © 2018 Andrew Finke. All rights reserved.
@@ -53,69 +53,75 @@ class PreferencesManager {
         }
     }
 
+    // MARK: - Preferences
+
+    var completedSetup: Bool {
+        didSet {
+            defaults.set(completedSetup, forKey: "completedSetup")
+        }
+    }
+
+    var lastPromptDate: Date {
+        didSet {
+            defaults.set(lastPromptDate, forKey: "lastPromptDate")
+        }
+    }
+
+    var calendarIdentifiers: [String]? {
+        didSet {
+            defaults.set(calendarIdentifiers, forKey: "calendarIdentifiers")
+        }
+    }
+
+    var sortStyle: SortStyle {
+        didSet {
+            defaults.set(sortStyle.rawValue, forKey: SortStyle.defaultsKey)
+        }
+    }
+
+    var timespan: Timespan {
+        didSet {
+            defaults.set(timespan.rawValue, forKey: Timespan.defaultsKey)
+        }
+    }
+
+    var shouldHideEmptyEvents: Bool {
+        didSet {
+            defaults.set(shouldHideEmptyEvents, forKey: "shouldHideNoDataEvents")
+        }
+    }
+
     // MARK: - Properties
 
     static let shared = PreferencesManager()
     private let defaults = UserDefaults.standard
 
-    // MARK: - Preferences
+    // MARK: - Initalization
 
-    var sortStyle: SortStyle {
-        get {
-            let rawValue = defaults.integer(forKey: SortStyle.defaultsKey)
-            guard let style = SortStyle(rawValue: rawValue) else {
-                fatalError()
-            }
-            return style
-        }
-        set {
-            defaults.set(newValue.rawValue, forKey: SortStyle.defaultsKey)
-        }
-    }
+    init() {
+        self.completedSetup = defaults.bool(forKey: "completedSetup")
+        self.lastPromptDate = defaults.object(forKey: "lastPromptDate") as? Date ?? Date()
+        self.calendarIdentifiers = defaults.array(forKey: "calendarIdentifiers") as? [String]
 
-    var timespan: Timespan {
-        get {
-            if defaults.value(forKey: Timespan.defaultsKey) == nil {
-                // set default timespan to one week
-                defaults.set(Timespan.week.rawValue, forKey: Timespan.defaultsKey)
-            }
+        // Load Sort Style
+        var rawValue = defaults.integer(forKey: SortStyle.defaultsKey)
+        guard let style = SortStyle(rawValue: rawValue) else {
+            fatalError()
+        }
+        self.sortStyle = style
 
-            let rawValue = defaults.integer(forKey: Timespan.defaultsKey)
-            guard let timespan = Timespan(rawValue: rawValue) else {
-                fatalError()
-            }
-            return timespan
+        // Load Timespan
+        if defaults.value(forKey: Timespan.defaultsKey) == nil {
+            // set default timespan to one week
+            defaults.set(Timespan.week.rawValue, forKey: Timespan.defaultsKey)
         }
-        set {
-            defaults.set(newValue.rawValue, forKey: Timespan.defaultsKey)
+        rawValue = defaults.integer(forKey: Timespan.defaultsKey)
+        guard let timespan = Timespan(rawValue: rawValue) else {
+            fatalError()
         }
-    }
+        self.timespan = timespan
 
-    var calendarIdentifiers: [String]? {
-        get {
-            return defaults.array(forKey: "CalendarIDS") as? [String]
-        }
-        set {
-            return defaults.set(newValue, forKey: "CalendarIDS")
-        }
-    }
-
-    var shouldHideEmptyEvents: Bool {
-        get {
-            return defaults.bool(forKey: "shouldHideNoDataEvents")
-        }
-        set {
-            return defaults.set(newValue, forKey: "shouldHideNoDataEvents")
-        }
-    }
-
-    var completedSetup: Bool {
-        get {
-            return defaults.bool(forKey: "completedSetup")
-        }
-        set {
-            return defaults.set(newValue, forKey: "completedSetup")
-        }
+        self.shouldHideEmptyEvents = defaults.bool(forKey: "shouldHideNoDataEvents")
     }
 
 }

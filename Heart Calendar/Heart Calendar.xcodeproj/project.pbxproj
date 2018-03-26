@@ -11,8 +11,8 @@
 		146BBA822068438F00428725 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146BBA812068438F00428725 /* EventTableViewController.swift */; };
 		146C04CC206861D6005B58DE /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04CB206861D6005B58DE /* EventTableViewCell.swift */; };
 		146C04CE2068657A005B58DE /* PreferencesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04CD2068657A005B58DE /* PreferencesTableViewController.swift */; };
-		146C04D020686609005B58DE /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04CF20686609005B58DE /* CalendarTableViewCell.swift */; };
-		146C04D220686FC6005B58DE /* ExtendedCalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04D120686FC6005B58DE /* ExtendedCalendarTableViewCell.swift */; };
+		146C04D020686609005B58DE /* IndicatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04CF20686609005B58DE /* IndicatorTableViewCell.swift */; };
+		146C04D220686FC6005B58DE /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04D120686FC6005B58DE /* CalendarTableViewCell.swift */; };
 		146C04D420687013005B58DE /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04D320687013005B58DE /* PreferencesManager.swift */; };
 		146C04DC2068841A005B58DE /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04DB2068841A005B58DE /* SwitchTableViewCell.swift */; };
 		146C04E9206887EF005B58DE /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04E2206887EE005B58DE /* SetupViewController.swift */; };
@@ -37,8 +37,8 @@
 		146BBA812068438F00428725 /* EventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
 		146C04CB206861D6005B58DE /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		146C04CD2068657A005B58DE /* PreferencesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewController.swift; sourceTree = "<group>"; };
-		146C04CF20686609005B58DE /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
-		146C04D120686FC6005B58DE /* ExtendedCalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedCalendarTableViewCell.swift; sourceTree = "<group>"; };
+		146C04CF20686609005B58DE /* IndicatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorTableViewCell.swift; sourceTree = "<group>"; };
+		146C04D120686FC6005B58DE /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		146C04D320687013005B58DE /* PreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
 		146C04DB2068841A005B58DE /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		146C04E2206887EE005B58DE /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
@@ -80,9 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				146C04ED20689411005B58DE /* AccessView.swift */,
-				146C04CF20686609005B58DE /* CalendarTableViewCell.swift */,
+				146C04D120686FC6005B58DE /* CalendarTableViewCell.swift */,
 				146C04CB206861D6005B58DE /* EventTableViewCell.swift */,
-				146C04D120686FC6005B58DE /* ExtendedCalendarTableViewCell.swift */,
+				146C04CF20686609005B58DE /* IndicatorTableViewCell.swift */,
 				146C04DB2068841A005B58DE /* SwitchTableViewCell.swift */,
 			);
 			path = Views;
@@ -309,9 +309,9 @@
 				14CCF401202C086300DCFF48 /* EventManager.swift in Sources */,
 				146C04F02068A3A3005B58DE /* AlertConstants.swift in Sources */,
 				14CCF3CD202BA99C00DCFF48 /* AppDelegate.swift in Sources */,
-				146C04D020686609005B58DE /* CalendarTableViewCell.swift in Sources */,
+				146C04D020686609005B58DE /* IndicatorTableViewCell.swift in Sources */,
 				1413A33B20684E5500EB2F71 /* Model.swift in Sources */,
-				146C04D220686FC6005B58DE /* ExtendedCalendarTableViewCell.swift in Sources */,
+				146C04D220686FC6005B58DE /* CalendarTableViewCell.swift in Sources */,
 				146BBA822068438F00428725 /* EventTableViewController.swift in Sources */,
 				14CCF3FB202BA9AE00DCFF48 /* HealthManager.swift in Sources */,
 				146C04CE2068657A005B58DE /* PreferencesTableViewController.swift in Sources */,

@@ -1,6 +1,6 @@
 //
 //  PreferencesTableViewController+TableView.swift
-//  Heart Cal
+//  Heart Calendar
 //
 //  Created by Andrew Finke on 3/25/18.
 //  Copyright © 2018 Andrew Finke. All rights reserved.
@@ -49,12 +49,12 @@ extension PreferencesTableViewController {
 
         if indexPath.section == 0 {
             //swiftlint:disable:next line_length
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ExtendedCalendarTableViewCell.reuseIdentifier, for: indexPath) as? ExtendedCalendarTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CalendarTableViewCell.reuseIdentifier, for: indexPath) as? CalendarTableViewCell else {
                 fatalError()
             }
             let calendar = calendars[indexPath.row]
             cell.calendarTitleLabel.text = calendar.title
-            cell.calendarIndicatorView.backgroundColor = calendar.color
+            cell.indicatorView.backgroundColor = calendar.color
 
             let calendarIdentifiers = PreferencesManager.shared.calendarIdentifiers ?? []
             cell.accessoryType = calendarIdentifiers.contains(calendar.identifier) ? .checkmark : .none
@@ -107,17 +107,17 @@ extension PreferencesTableViewController {
             }
             tableView.reloadRows(at: [indexPath], with: .none)
             Answers.logCustomEvent(withName: "Preferences-Calendars",
-                                   customAttributes: ["Count": calendarIdentifiers.count])
+                                   customAttributes: ["Count": calendarIdentifiers.count.description])
         } else if indexPath.section == 1 {
             PreferencesManager.shared.sortStyle = PreferencesManager.SortStyle.all[indexPath.row]
             tableView.reloadSections(IndexSet(integer: 1), with: .none)
             Answers.logCustomEvent(withName: "Preferences-SortStyle",
-                                   customAttributes: ["SortStyle": PreferencesManager.shared.sortStyle])
+                                   customAttributes: ["SortStyle": PreferencesManager.shared.sortStyle.rawValue])
         } else if indexPath.section == 2 {
             PreferencesManager.shared.timespan = PreferencesManager.Timespan.all[indexPath.row]
             tableView.reloadSections(IndexSet(integer: 2), with: .none)
             Answers.logCustomEvent(withName: "Preferences-Timespan",
-                                   customAttributes: ["Timespan": PreferencesManager.shared.timespan])
+                                   customAttributes: ["Timespan": PreferencesManager.shared.timespan.rawValue])
         } else if indexPath.section == 3 {
             // switch cell
         } else {
