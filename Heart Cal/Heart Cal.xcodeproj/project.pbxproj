@@ -7,53 +7,59 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1413A33B20684E5500EB2F71 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1413A33A20684E5500EB2F71 /* Model.swift */; };
+		146BBA822068438F00428725 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146BBA812068438F00428725 /* EventTableViewController.swift */; };
+		146C04CC206861D6005B58DE /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04CB206861D6005B58DE /* EventTableViewCell.swift */; };
+		146C04CE2068657A005B58DE /* PreferencesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04CD2068657A005B58DE /* PreferencesTableViewController.swift */; };
+		146C04D020686609005B58DE /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04CF20686609005B58DE /* CalendarTableViewCell.swift */; };
+		146C04D220686FC6005B58DE /* ExtendedCalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04D120686FC6005B58DE /* ExtendedCalendarTableViewCell.swift */; };
+		146C04D420687013005B58DE /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04D320687013005B58DE /* PreferencesManager.swift */; };
+		146C04DC2068841A005B58DE /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04DB2068841A005B58DE /* SwitchTableViewCell.swift */; };
+		146C04E9206887EF005B58DE /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04E2206887EE005B58DE /* SetupViewController.swift */; };
+		146C04EE20689411005B58DE /* AccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04ED20689411005B58DE /* AccessView.swift */; };
+		146C04F02068A3A3005B58DE /* AlertConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04EF2068A3A3005B58DE /* AlertConstants.swift */; };
+		146C04F22068AA36005B58DE /* EventTableViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04F12068AA36005B58DE /* EventTableViewController+TableView.swift */; };
+		146C04F42068AA8F005B58DE /* PreferencesTableViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04F32068AA8F005B58DE /* PreferencesTableViewController+TableView.swift */; };
+		14837BB22068B0A6003F3A0C /* fabric.apikey in Resources */ = {isa = PBXBuildFile; fileRef = 14837BB02068B0A6003F3A0C /* fabric.apikey */; };
+		14837BB72068B0EF003F3A0C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14837BB52068B0EF003F3A0C /* Crashlytics.framework */; };
+		14837BB82068B0EF003F3A0C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14837BB62068B0EF003F3A0C /* Fabric.framework */; };
 		14CCF3CD202BA99C00DCFF48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CCF3CC202BA99C00DCFF48 /* AppDelegate.swift */; };
-		14CCF3CF202BA99C00DCFF48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CCF3CE202BA99C00DCFF48 /* ViewController.swift */; };
 		14CCF3D2202BA99C00DCFF48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14CCF3D0202BA99C00DCFF48 /* Main.storyboard */; };
 		14CCF3D4202BA99C00DCFF48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14CCF3D3202BA99C00DCFF48 /* Assets.xcassets */; };
 		14CCF3D7202BA99C00DCFF48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14CCF3D5202BA99C00DCFF48 /* LaunchScreen.storyboard */; };
-		14CCF3E2202BA99C00DCFF48 /* Heart_CalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CCF3E1202BA99C00DCFF48 /* Heart_CalTests.swift */; };
-		14CCF3ED202BA99C00DCFF48 /* Heart_CalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CCF3EC202BA99C00DCFF48 /* Heart_CalUITests.swift */; };
-		14CCF3FB202BA9AE00DCFF48 /* HealthFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CCF3FA202BA9AE00DCFF48 /* HealthFetcher.swift */; };
+		14CCF3FB202BA9AE00DCFF48 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CCF3FA202BA9AE00DCFF48 /* HealthManager.swift */; };
 		14CCF3FF202BACD400DCFF48 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14CCF3FE202BACD400DCFF48 /* HealthKit.framework */; };
-		14CCF401202C086300DCFF48 /* EventFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CCF400202C086300DCFF48 /* EventFetcher.swift */; };
+		14CCF401202C086300DCFF48 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CCF400202C086300DCFF48 /* EventManager.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		14CCF3DE202BA99C00DCFF48 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 14CCF3C1202BA99C00DCFF48 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 14CCF3C8202BA99C00DCFF48;
-			remoteInfo = "Heart Cal";
-		};
-		14CCF3E9202BA99C00DCFF48 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 14CCF3C1202BA99C00DCFF48 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 14CCF3C8202BA99C00DCFF48;
-			remoteInfo = "Heart Cal";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		1413A33A20684E5500EB2F71 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		146BBA812068438F00428725 /* EventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
+		146C04CB206861D6005B58DE /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		146C04CD2068657A005B58DE /* PreferencesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewController.swift; sourceTree = "<group>"; };
+		146C04CF20686609005B58DE /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
+		146C04D120686FC6005B58DE /* ExtendedCalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedCalendarTableViewCell.swift; sourceTree = "<group>"; };
+		146C04D320687013005B58DE /* PreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
+		146C04DB2068841A005B58DE /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		146C04E2206887EE005B58DE /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
+		146C04ED20689411005B58DE /* AccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessView.swift; sourceTree = "<group>"; };
+		146C04EF2068A3A3005B58DE /* AlertConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertConstants.swift; sourceTree = "<group>"; };
+		146C04F12068AA36005B58DE /* EventTableViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventTableViewController+TableView.swift"; sourceTree = "<group>"; };
+		146C04F32068AA8F005B58DE /* PreferencesTableViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesTableViewController+TableView.swift"; sourceTree = "<group>"; };
+		14837BB02068B0A6003F3A0C /* fabric.apikey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fabric.apikey; sourceTree = SOURCE_ROOT; };
+		14837BB12068B0A6003F3A0C /* fabric.buildsecret */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fabric.buildsecret; sourceTree = SOURCE_ROOT; };
+		14837BB52068B0EF003F3A0C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
+		14837BB62068B0EF003F3A0C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		14CCF3C9202BA99C00DCFF48 /* Heart Cal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Heart Cal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14CCF3CC202BA99C00DCFF48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		14CCF3CE202BA99C00DCFF48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		14CCF3D1202BA99C00DCFF48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14CCF3D3202BA99C00DCFF48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14CCF3D6202BA99C00DCFF48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14CCF3D8202BA99C00DCFF48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14CCF3DD202BA99C00DCFF48 /* Heart CalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Heart CalTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		14CCF3E1202BA99C00DCFF48 /* Heart_CalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heart_CalTests.swift; sourceTree = "<group>"; };
-		14CCF3E3202BA99C00DCFF48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14CCF3E8202BA99C00DCFF48 /* Heart CalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Heart CalUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		14CCF3EC202BA99C00DCFF48 /* Heart_CalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heart_CalUITests.swift; sourceTree = "<group>"; };
-		14CCF3EE202BA99C00DCFF48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14CCF3FA202BA9AE00DCFF48 /* HealthFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthFetcher.swift; sourceTree = "<group>"; };
+		14CCF3FA202BA9AE00DCFF48 /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		14CCF3FC202BACD400DCFF48 /* Heart Cal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Heart Cal.entitlements"; sourceTree = "<group>"; };
 		14CCF3FE202BACD400DCFF48 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		14CCF400202C086300DCFF48 /* EventFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFetcher.swift; sourceTree = "<group>"; };
+		14CCF400202C086300DCFF48 /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,33 +67,79 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14837BB72068B0EF003F3A0C /* Crashlytics.framework in Frameworks */,
 				14CCF3FF202BACD400DCFF48 /* HealthKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14CCF3DA202BA99C00DCFF48 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14CCF3E5202BA99C00DCFF48 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				14837BB82068B0EF003F3A0C /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		146C04D5206870D1005B58DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				146C04ED20689411005B58DE /* AccessView.swift */,
+				146C04CF20686609005B58DE /* CalendarTableViewCell.swift */,
+				146C04CB206861D6005B58DE /* EventTableViewCell.swift */,
+				146C04D120686FC6005B58DE /* ExtendedCalendarTableViewCell.swift */,
+				146C04DB2068841A005B58DE /* SwitchTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		146C04D6206870DE005B58DE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				146BBA812068438F00428725 /* EventTableViewController.swift */,
+				146C04F12068AA36005B58DE /* EventTableViewController+TableView.swift */,
+				146C04CD2068657A005B58DE /* PreferencesTableViewController.swift */,
+				146C04F32068AA8F005B58DE /* PreferencesTableViewController+TableView.swift */,
+				146C04E2206887EE005B58DE /* SetupViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		146C04D7206870EB005B58DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1413A33A20684E5500EB2F71 /* Model.swift */,
+				146C04EF2068A3A3005B58DE /* AlertConstants.swift */,
+				14CCF3CC202BA99C00DCFF48 /* AppDelegate.swift */,
+				146C04D8206870F2005B58DE /* Managers */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		146C04D8206870F2005B58DE /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				14CCF400202C086300DCFF48 /* EventManager.swift */,
+				14CCF3FA202BA9AE00DCFF48 /* HealthManager.swift */,
+				146C04D320687013005B58DE /* PreferencesManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		146C04F52068AE66005B58DE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				14837BB52068B0EF003F3A0C /* Crashlytics.framework */,
+				14837BB62068B0EF003F3A0C /* Fabric.framework */,
+				14837BB02068B0A6003F3A0C /* fabric.apikey */,
+				14837BB12068B0A6003F3A0C /* fabric.buildsecret */,
+				14CCF3D0202BA99C00DCFF48 /* Main.storyboard */,
+				14CCF3D3202BA99C00DCFF48 /* Assets.xcassets */,
+				14CCF3D5202BA99C00DCFF48 /* LaunchScreen.storyboard */,
+				14CCF3FC202BACD400DCFF48 /* Heart Cal.entitlements */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		14CCF3C0202BA99C00DCFF48 = {
 			isa = PBXGroup;
 			children = (
 				14CCF3CB202BA99C00DCFF48 /* Heart Cal */,
-				14CCF3E0202BA99C00DCFF48 /* Heart CalTests */,
-				14CCF3EB202BA99C00DCFF48 /* Heart CalUITests */,
 				14CCF3CA202BA99C00DCFF48 /* Products */,
 				14CCF3FD202BACD400DCFF48 /* Frameworks */,
 			);
@@ -97,8 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				14CCF3C9202BA99C00DCFF48 /* Heart Cal.app */,
-				14CCF3DD202BA99C00DCFF48 /* Heart CalTests.xctest */,
-				14CCF3E8202BA99C00DCFF48 /* Heart CalUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,35 +156,13 @@
 		14CCF3CB202BA99C00DCFF48 /* Heart Cal */ = {
 			isa = PBXGroup;
 			children = (
-				14CCF3FC202BACD400DCFF48 /* Heart Cal.entitlements */,
-				14CCF3CC202BA99C00DCFF48 /* AppDelegate.swift */,
-				14CCF3CE202BA99C00DCFF48 /* ViewController.swift */,
-				14CCF3FA202BA9AE00DCFF48 /* HealthFetcher.swift */,
-				14CCF400202C086300DCFF48 /* EventFetcher.swift */,
-				14CCF3D0202BA99C00DCFF48 /* Main.storyboard */,
-				14CCF3D3202BA99C00DCFF48 /* Assets.xcassets */,
-				14CCF3D5202BA99C00DCFF48 /* LaunchScreen.storyboard */,
+				146C04D5206870D1005B58DE /* Views */,
+				146C04D6206870DE005B58DE /* Controllers */,
+				146C04D7206870EB005B58DE /* Model */,
+				146C04F52068AE66005B58DE /* Resources */,
 				14CCF3D8202BA99C00DCFF48 /* Info.plist */,
 			);
 			path = "Heart Cal";
-			sourceTree = "<group>";
-		};
-		14CCF3E0202BA99C00DCFF48 /* Heart CalTests */ = {
-			isa = PBXGroup;
-			children = (
-				14CCF3E1202BA99C00DCFF48 /* Heart_CalTests.swift */,
-				14CCF3E3202BA99C00DCFF48 /* Info.plist */,
-			);
-			path = "Heart CalTests";
-			sourceTree = "<group>";
-		};
-		14CCF3EB202BA99C00DCFF48 /* Heart CalUITests */ = {
-			isa = PBXGroup;
-			children = (
-				14CCF3EC202BA99C00DCFF48 /* Heart_CalUITests.swift */,
-				14CCF3EE202BA99C00DCFF48 /* Info.plist */,
-			);
-			path = "Heart CalUITests";
 			sourceTree = "<group>";
 		};
 		14CCF3FD202BACD400DCFF48 /* Frameworks */ = {
@@ -152,9 +180,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14CCF3F1202BA99C00DCFF48 /* Build configuration list for PBXNativeTarget "Heart Cal" */;
 			buildPhases = (
+				1413A34020684FC800EB2F71 /* Build Number */,
 				14CCF3C5202BA99C00DCFF48 /* Sources */,
 				14CCF3C6202BA99C00DCFF48 /* Frameworks */,
 				14CCF3C7202BA99C00DCFF48 /* Resources */,
+				1413A33F20684FC700EB2F71 /* Swiftlint */,
+				14837BB42068B0B6003F3A0C /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -164,42 +195,6 @@
 			productName = "Heart Cal";
 			productReference = 14CCF3C9202BA99C00DCFF48 /* Heart Cal.app */;
 			productType = "com.apple.product-type.application";
-		};
-		14CCF3DC202BA99C00DCFF48 /* Heart CalTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 14CCF3F4202BA99C00DCFF48 /* Build configuration list for PBXNativeTarget "Heart CalTests" */;
-			buildPhases = (
-				14CCF3D9202BA99C00DCFF48 /* Sources */,
-				14CCF3DA202BA99C00DCFF48 /* Frameworks */,
-				14CCF3DB202BA99C00DCFF48 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				14CCF3DF202BA99C00DCFF48 /* PBXTargetDependency */,
-			);
-			name = "Heart CalTests";
-			productName = "Heart CalTests";
-			productReference = 14CCF3DD202BA99C00DCFF48 /* Heart CalTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		14CCF3E7202BA99C00DCFF48 /* Heart CalUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 14CCF3F7202BA99C00DCFF48 /* Build configuration list for PBXNativeTarget "Heart CalUITests" */;
-			buildPhases = (
-				14CCF3E4202BA99C00DCFF48 /* Sources */,
-				14CCF3E5202BA99C00DCFF48 /* Frameworks */,
-				14CCF3E6202BA99C00DCFF48 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				14CCF3EA202BA99C00DCFF48 /* PBXTargetDependency */,
-			);
-			name = "Heart CalUITests";
-			productName = "Heart CalUITests";
-			productReference = 14CCF3E8202BA99C00DCFF48 /* Heart CalUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -220,16 +215,6 @@
 							};
 						};
 					};
-					14CCF3DC202BA99C00DCFF48 = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 14CCF3C8202BA99C00DCFF48;
-					};
-					14CCF3E7202BA99C00DCFF48 = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 14CCF3C8202BA99C00DCFF48;
-					};
 				};
 			};
 			buildConfigurationList = 14CCF3C4202BA99C00DCFF48 /* Build configuration list for PBXProject "Heart Cal" */;
@@ -246,8 +231,6 @@
 			projectRoot = "";
 			targets = (
 				14CCF3C8202BA99C00DCFF48 /* Heart Cal */,
-				14CCF3DC202BA99C00DCFF48 /* Heart CalTests */,
-				14CCF3E7202BA99C00DCFF48 /* Heart CalUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,69 +241,84 @@
 			buildActionMask = 2147483647;
 			files = (
 				14CCF3D7202BA99C00DCFF48 /* LaunchScreen.storyboard in Resources */,
+				14837BB22068B0A6003F3A0C /* fabric.apikey in Resources */,
 				14CCF3D4202BA99C00DCFF48 /* Assets.xcassets in Resources */,
 				14CCF3D2202BA99C00DCFF48 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		14CCF3DB202BA99C00DCFF48 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14CCF3E6202BA99C00DCFF48 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1413A33F20684FC700EB2F71 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		1413A34020684FC800EB2F71 /* Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build Number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${INFOPLIST_FILE}\"";
+		};
+		14837BB42068B0B6003F3A0C /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "FABRIC_APIKEY_FILE=\"${SRCROOT}/fabric.apikey\"\nFABRIC_BUILDSECRET_FILE=\"${SRCROOT}/fabric.buildsecret\"\n\nif test ! -f \"$FABRIC_APIKEY_FILE\" -o ! -f \"$FABRIC_BUILDSECRET_FILE\"; then\necho \"This build wants to upload dSYM files to Crashlytics.\"\necho \"Uploading is possible only if a Fabric API key and a Fabric build secret are\"\necho \"available. This build is failing because at least one of these pieces of\"\necho \"information is missing.\"\necho \"\"\necho \"To fix the problem, create the following files and store the API key and\"\necho \"build secret, respectively, within those files:\"\necho \"\"\necho \"  $FABRIC_APIKEY_FILE\"\necho \"  $FABRIC_BUILDSECRET_FILE\"\necho \"\"\necho \"If you forked the project then you must register with Crashlytics and\"\necho \"get your own API key and build secret.\"\n\n# Let the build fail\nexit 1\nfi\n\nFABRIC_APIKEY=$(cat \"$FABRIC_APIKEY_FILE\")\nif test $? -ne 0; then\necho \"Cannot read $FABRIC_APIKEY_FILE\"\nexit 1\nfi\n\nFABRIC_BUILDSECRET=$(cat \"$FABRIC_BUILDSECRET_FILE\")\nif test $? -ne 0; then\necho \"Cannot read $FABRIC_BUILDSECRET_FILE\"\nexit 1\nfi\n\necho \"Uploading dSYM files to Crashlytics\"\n\"./Fabric.framework/run\" \"$FABRIC_APIKEY\" \"$FABRIC_BUILDSECRET\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		14CCF3C5202BA99C00DCFF48 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14CCF3CF202BA99C00DCFF48 /* ViewController.swift in Sources */,
-				14CCF401202C086300DCFF48 /* EventFetcher.swift in Sources */,
+				146C04F42068AA8F005B58DE /* PreferencesTableViewController+TableView.swift in Sources */,
+				146C04D420687013005B58DE /* PreferencesManager.swift in Sources */,
+				146C04E9206887EF005B58DE /* SetupViewController.swift in Sources */,
+				146C04CC206861D6005B58DE /* EventTableViewCell.swift in Sources */,
+				146C04EE20689411005B58DE /* AccessView.swift in Sources */,
+				146C04F22068AA36005B58DE /* EventTableViewController+TableView.swift in Sources */,
+				146C04DC2068841A005B58DE /* SwitchTableViewCell.swift in Sources */,
+				14CCF401202C086300DCFF48 /* EventManager.swift in Sources */,
+				146C04F02068A3A3005B58DE /* AlertConstants.swift in Sources */,
 				14CCF3CD202BA99C00DCFF48 /* AppDelegate.swift in Sources */,
-				14CCF3FB202BA9AE00DCFF48 /* HealthFetcher.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14CCF3D9202BA99C00DCFF48 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14CCF3E2202BA99C00DCFF48 /* Heart_CalTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14CCF3E4202BA99C00DCFF48 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14CCF3ED202BA99C00DCFF48 /* Heart_CalUITests.swift in Sources */,
+				146C04D020686609005B58DE /* CalendarTableViewCell.swift in Sources */,
+				1413A33B20684E5500EB2F71 /* Model.swift in Sources */,
+				146C04D220686FC6005B58DE /* ExtendedCalendarTableViewCell.swift in Sources */,
+				146BBA822068438F00428725 /* EventTableViewController.swift in Sources */,
+				14CCF3FB202BA9AE00DCFF48 /* HealthManager.swift in Sources */,
+				146C04CE2068657A005B58DE /* PreferencesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		14CCF3DF202BA99C00DCFF48 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 14CCF3C8202BA99C00DCFF48 /* Heart Cal */;
-			targetProxy = 14CCF3DE202BA99C00DCFF48 /* PBXContainerItemProxy */;
-		};
-		14CCF3EA202BA99C00DCFF48 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 14CCF3C8202BA99C00DCFF48 /* Heart Cal */;
-			targetProxy = 14CCF3E9202BA99C00DCFF48 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		14CCF3D0202BA99C00DCFF48 /* Main.storyboard */ = {
@@ -390,7 +388,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -441,7 +439,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -453,10 +451,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Heart Cal/Heart Cal.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Heart Cal/Resources/Heart Cal.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72S993BNAV;
-				INFOPLIST_FILE = "Heart Cal/Info.plist";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Heart Cal/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewfinke.Heart-Cal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -469,81 +471,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Heart Cal/Heart Cal.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Heart Cal/Resources/Heart Cal.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72S993BNAV;
-				INFOPLIST_FILE = "Heart Cal/Info.plist";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Heart Cal/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewfinke.Heart-Cal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		14CCF3F5202BA99C00DCFF48 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 72S993BNAV;
-				INFOPLIST_FILE = "Heart CalTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewfinke.Heart-CalTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Heart Cal.app/Heart Cal";
-			};
-			name = Debug;
-		};
-		14CCF3F6202BA99C00DCFF48 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 72S993BNAV;
-				INFOPLIST_FILE = "Heart CalTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewfinke.Heart-CalTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Heart Cal.app/Heart Cal";
-			};
-			name = Release;
-		};
-		14CCF3F8202BA99C00DCFF48 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 72S993BNAV;
-				INFOPLIST_FILE = "Heart CalUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewfinke.Heart-CalUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Heart Cal";
-			};
-			name = Debug;
-		};
-		14CCF3F9202BA99C00DCFF48 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 72S993BNAV;
-				INFOPLIST_FILE = "Heart CalUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewfinke.Heart-CalUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Heart Cal";
 			};
 			name = Release;
 		};
@@ -564,24 +504,6 @@
 			buildConfigurations = (
 				14CCF3F2202BA99C00DCFF48 /* Debug */,
 				14CCF3F3202BA99C00DCFF48 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		14CCF3F4202BA99C00DCFF48 /* Build configuration list for PBXNativeTarget "Heart CalTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				14CCF3F5202BA99C00DCFF48 /* Debug */,
-				14CCF3F6202BA99C00DCFF48 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		14CCF3F7202BA99C00DCFF48 /* Build configuration list for PBXNativeTarget "Heart CalUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				14CCF3F8202BA99C00DCFF48 /* Debug */,
-				14CCF3F9202BA99C00DCFF48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
