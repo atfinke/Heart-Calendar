@@ -12,33 +12,42 @@ class CalendarTableViewCell: UITableViewCell {
 
     // MARK: - Properties
 
-    let calendarView = UIView()
+    let calendarIndicatorView = UIView()
     static let indentConstant: CGFloat = 18.0
+
+    // MARK: - Initalization
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
-        let calendarViewCircleSize: CGFloat = 15.0
-        calendarView.layer.cornerRadius = calendarViewCircleSize / 2.0
-
-        calendarView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(calendarView)
+        calendarIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(calendarIndicatorView)
 
         let constraints = [
-            calendarView.leftAnchor.constraint(equalTo: self.leftAnchor,
-                                               constant: CalendarTableViewCell.indentConstant),
-            calendarView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            calendarView.widthAnchor.constraint(equalToConstant: calendarViewCircleSize),
-            calendarView.heightAnchor.constraint(equalToConstant: calendarViewCircleSize)
+            calendarIndicatorView.leftAnchor.constraint(equalTo: self.leftAnchor),
+            calendarIndicatorView.widthAnchor.constraint(equalToConstant: 18.0),
+            calendarIndicatorView.heightAnchor.constraint(equalTo: self.heightAnchor)
         ]
 
         NSLayoutConstraint.activate(constraints)
     }
 
+    // MARK: - Overrides
+
+    func overrideIndicatorWidth(width: CGFloat) {
+        NSLayoutConstraint.deactivate(calendarIndicatorView.constraints)
+        let constraints = [
+            calendarIndicatorView.leftAnchor.constraint(equalTo: self.leftAnchor),
+            calendarIndicatorView.widthAnchor.constraint(equalToConstant: width),
+            calendarIndicatorView.heightAnchor.constraint(equalTo: self.heightAnchor)
+        ]
+        NSLayoutConstraint.activate(constraints)
+    }
+
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        let color = calendarView.backgroundColor
+        let color = calendarIndicatorView.backgroundColor
         super.setHighlighted(highlighted, animated: animated)
-        calendarView.backgroundColor = color
+        calendarIndicatorView.backgroundColor = color
     }
 
 }

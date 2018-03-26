@@ -16,6 +16,8 @@ class EventTableViewCell: CalendarTableViewCell {
     let eventDateLabel = UILabel()
     let averageBPMLabel = UILabel()
 
+    static let reuseIdentifier = "reuseIdentifier"
+
     // MARK: - Initalization
 
     required init?(coder aDecoder: NSCoder) {
@@ -36,7 +38,7 @@ class EventTableViewCell: CalendarTableViewCell {
         }
 
         let constraints = [
-            eventTitleLabel.leftAnchor.constraint(equalTo: calendarView.rightAnchor,
+            eventTitleLabel.leftAnchor.constraint(equalTo: calendarIndicatorView.rightAnchor,
                                                   constant: EventTableViewCell.indentConstant),
             eventTitleLabel.rightAnchor.constraint(equalTo: averageBPMLabel.leftAnchor,
                                                    constant: -10),

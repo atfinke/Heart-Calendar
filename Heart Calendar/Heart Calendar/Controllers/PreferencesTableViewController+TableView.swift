@@ -49,12 +49,12 @@ extension PreferencesTableViewController {
 
         if indexPath.section == 0 {
             //swiftlint:disable:next line_length
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "calendarReuseIdentifier", for: indexPath) as? ExtendedCalendarTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ExtendedCalendarTableViewCell.reuseIdentifier, for: indexPath) as? ExtendedCalendarTableViewCell else {
                 fatalError()
             }
             let calendar = calendars[indexPath.row]
             cell.calendarTitleLabel.text = calendar.title
-            cell.calendarView.backgroundColor = calendar.color
+            cell.calendarIndicatorView.backgroundColor = calendar.color
 
             let calendarIdentifiers = PreferencesManager.shared.calendarIdentifiers ?? []
             cell.accessoryType = calendarIdentifiers.contains(calendar.identifier) ? .checkmark : .none
@@ -62,12 +62,12 @@ extension PreferencesTableViewController {
             return cell
         } else if indexPath.section == 3 {
             //swiftlint:disable:next line_length
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "switchReuseIdentifier", for: indexPath) as? SwitchTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.reuseIdentifier, for: indexPath) as? SwitchTableViewCell else {
                 fatalError()
             }
             cell.infoLabel.text = "Hide events with no BPM data"
-            cell.`switch`.isOn = PreferencesManager.shared.shouldHideEmptyEvents
-            cell.`switch`.addTarget(self, action: #selector(switchToggled(sender:)), for: .valueChanged)
+            cell.preferenceSwitch.isOn = PreferencesManager.shared.shouldHideEmptyEvents
+            cell.preferenceSwitch.addTarget(self, action: #selector(switchToggled(sender:)), for: .valueChanged)
 
             return cell
         }

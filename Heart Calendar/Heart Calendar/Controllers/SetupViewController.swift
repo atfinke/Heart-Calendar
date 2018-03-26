@@ -20,7 +20,7 @@ class SetupViewController: UIViewController {
 
     private let calendarView: AccessView = {
         let accessView = AccessView(frame: .zero)
-        let text = "Heart Calendar needs access to your calendar to read event names and times."
+        let text = "Heart Calendar needs access to your calendar to read event titles and dates."
         accessView.descriptionLabel.text = text
         accessView.button.setTitle("Grant Calendar Access", for: .normal)
         accessView.translatesAutoresizingMaskIntoConstraints = false

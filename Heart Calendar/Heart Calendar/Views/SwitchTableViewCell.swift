@@ -13,7 +13,8 @@ class SwitchTableViewCell: UITableViewCell {
     // MARK: - Properties
 
     let infoLabel = UILabel()
-    let `switch` = UISwitch()
+    let preferenceSwitch = UISwitch()
+    static let reuseIdentifier = "switchReuseIdentifier"
 
     // MARK: - Initialization
 
@@ -25,20 +26,20 @@ class SwitchTableViewCell: UITableViewCell {
         infoLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(infoLabel)
 
-        `switch`.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(`switch`)
+        preferenceSwitch.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(preferenceSwitch)
 
         let constraints = [
             infoLabel.leftAnchor.constraint(equalTo: self.leftAnchor,
                                             constant: CalendarTableViewCell.indentConstant),
-            infoLabel.rightAnchor.constraint(equalTo: `switch`.rightAnchor,
+            infoLabel.rightAnchor.constraint(equalTo: preferenceSwitch.rightAnchor,
                                              constant: -15),
 
             infoLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
             infoLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15),
 
-            `switch`.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            `switch`.rightAnchor.constraint(equalTo: self.rightAnchor,
+            preferenceSwitch.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            preferenceSwitch.rightAnchor.constraint(equalTo: self.rightAnchor,
                                               constant: -CalendarTableViewCell.indentConstant)
         ]
 

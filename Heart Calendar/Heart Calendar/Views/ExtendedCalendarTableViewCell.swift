@@ -13,11 +13,14 @@ class ExtendedCalendarTableViewCell: CalendarTableViewCell {
     // MARK: - Properties
 
     let calendarTitleLabel = UILabel()
+    static let reuseIdentifier = "calendarReuseIdentifier"
 
     // MARK: - Initialization
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+
+        overrideIndicatorWidth(width: 10.0)
 
         calendarTitleLabel.numberOfLines = 0
         calendarTitleLabel.font = UIFont.systemFont(ofSize: 17, weight: .regular)
@@ -25,7 +28,7 @@ class ExtendedCalendarTableViewCell: CalendarTableViewCell {
         addSubview(calendarTitleLabel)
 
         let constraints = [
-            calendarTitleLabel.leftAnchor.constraint(equalTo: calendarView.rightAnchor,
+            calendarTitleLabel.leftAnchor.constraint(equalTo: calendarIndicatorView.rightAnchor,
                                                      constant: EventTableViewCell.indentConstant),
             calendarTitleLabel.rightAnchor.constraint(equalTo: self.rightAnchor,
                                                       constant: -50),

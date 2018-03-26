@@ -118,7 +118,7 @@ class EventTableViewController: UITableViewController {
 
     // MARK: - Other
 
-    func noEventsFound() -> Bool {
+    func shouldShowInfoCell() -> Bool {
         return model.validEvents.isEmpty &&
             (model.noDataEvents.isEmpty || PreferencesManager.shared.shouldHideEmptyEvents)
     }

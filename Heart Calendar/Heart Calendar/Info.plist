@@ -17,17 +17,17 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>538</string>
+	<string>600</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCalendarsUsageDescription</key>
-	<string>Uses calendar data to show your average BPM for each calendar event.</string>
+	<string>Heart Calendar uses calendar data to show your average BPM for each calendar event.</string>
 	<key>NSHealthShareUsageDescription</key>
-	<string>Uses heart rate data to show your average BPM for each calendar event.</string>
+	<string>Heart Calendar uses heart rate data to show your average BPM for each calendar event.</string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string>Uses heart rate data to show your average BPM for each calendar event.</string>
+	<string>Heart Calendar uses heart rate data to show your average BPM for each calendar event.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

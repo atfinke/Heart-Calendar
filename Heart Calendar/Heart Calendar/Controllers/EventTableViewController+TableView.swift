@@ -13,7 +13,7 @@ extension EventTableViewController {
     // MARK: - UITableViewDataSource
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if noEventsFound() {
+        if shouldShowInfoCell() {
             return 1
         } else {
             return PreferencesManager.shared.shouldHideEmptyEvents ? 1 : 2
@@ -21,7 +21,7 @@ extension EventTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if noEventsFound() {
+        if shouldShowInfoCell() {
             return 1
         } else if section == 0 {
             return model.validEvents.count
@@ -43,14 +43,15 @@ extension EventTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if noEventsFound() {
-            let cell =  tableView.dequeueReusableCell(withIdentifier: "noEventsReuseIdentifier", for: indexPath)
+        if shouldShowInfoCell() {
+            //swiftlint:disable:next line_length
+            let cell = tableView.dequeueReusableCell(withIdentifier: "infoReuseIdentifier", for: indexPath)
             cell.textLabel?.text = isUpdatingModel ? "Loading Events..." : "No Events Found"
             return cell
         }
 
         //swiftlint:disable:next line_length
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as? EventTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: EventTableViewCell.reuseIdentifier, for: indexPath) as? EventTableViewCell else {
             fatalError()
         }
 
@@ -63,7 +64,7 @@ extension EventTableViewController {
             fatalError()
         }
 
-        cell.calendarView.backgroundColor = event.event.calendarColor
+        cell.calendarIndicatorView.backgroundColor = event.event.calendarColor
         cell.eventTitleLabel.text = event.event.title
         cell.eventDateLabel.text = formatter.string(from: event.event.startDate, to: event.event.endDate)
 
