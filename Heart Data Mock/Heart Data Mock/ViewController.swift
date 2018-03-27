@@ -12,6 +12,8 @@ import HealthKit
 
 class ViewController: UIViewController {
 
+    // MARK: - Types
+
     struct Event {
         let title: String
         let startDate: Date
@@ -19,7 +21,9 @@ class ViewController: UIViewController {
         let heartRate: Double
     }
 
-    let formatter: DateFormatter = {
+    // MARK: - Properties
+
+    private let formatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM-dd-yyyy HH:mm"
         return formatter
@@ -28,9 +32,9 @@ class ViewController: UIViewController {
     private let eventStore = EKEventStore()
     private let healthStore = HKHealthStore()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // MARK: - Actions
 
+    @IBAction func pressedStart(_ sender: Any) {
         for calendar in eventStore.calendars(for: .event) {
             do {
                 try eventStore.removeCalendar(calendar, commit: true)
@@ -38,9 +42,7 @@ class ViewController: UIViewController {
                 print(error)
             }
         }
-    }
 
-    @IBAction func pressedStart(_ sender: Any) {
         let calendars = [
             "Workout": UIColor.green,
             "Life": view.tintColor!,
@@ -105,8 +107,6 @@ class ViewController: UIViewController {
             }
         }
     }
-
-    // MARK: - Access
 
     @IBAction func pressedEventAccess(_ sender: Any) {
         eventStore.requestAccess(to: .event) { (_, error) in
