@@ -4,4 +4,7 @@
    <FileRef
       location = "group:Heart Calendar/Heart Calendar.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Heart Data Mock/Heart Data Mock.xcodeproj">
+   </FileRef>
 </Workspace>

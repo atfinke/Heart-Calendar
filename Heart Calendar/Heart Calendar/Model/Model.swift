@@ -39,7 +39,7 @@ class Model {
     // MARK: - Methods
 
     func calendars() -> [EventManager.Calendar] {
-        return eventManager.allStoreCalendars()
+        return eventManager.allStoreCalendars().sorted { $0.title < $1.title }
     }
 
     func update(completion: @escaping (() -> Void)) {

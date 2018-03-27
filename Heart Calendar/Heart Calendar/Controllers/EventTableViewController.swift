@@ -100,12 +100,10 @@ class EventTableViewController: UITableViewController {
                         self.tableView.reloadData()
                         self.tableView.refreshControl?.endRefreshing()
 
-                        if animated {
+                        if animated && !self.model.validEvents.isEmpty {
                             let lastIndex = PreferencesManager.shared.shouldHideEmptyEvents ? 0 : 1
                             self.tableView.reloadSections(IndexSet(integersIn: 0...lastIndex), with: .fade)
                         }
-
-
                         completion?()
                     }
 
