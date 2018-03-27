@@ -20,19 +20,21 @@ class SetupViewController: UIViewController {
 
     private let calendarView: AccessView = {
         let accessView = AccessView(frame: .zero)
+        accessView.translatesAutoresizingMaskIntoConstraints = false
+
         let text = "Heart Calendar needs access to your calendar to read event titles and dates."
         accessView.descriptionLabel.text = text
-        accessView.button.setTitle("Grant Calendar Access", for: .normal)
-        accessView.translatesAutoresizingMaskIntoConstraints = false
+        accessView.titleLabel.text = "Calendar Access"
         return accessView
     }()
 
     private let healthView: AccessView = {
         let accessView = AccessView(frame: .zero)
+        accessView.translatesAutoresizingMaskIntoConstraints = false
+
         let text = "Heart Calendar needs access to your heart rate infomation."
         accessView.descriptionLabel.text = text
-        accessView.button.setTitle("Grant Health Access", for: .normal)
-        accessView.translatesAutoresizingMaskIntoConstraints = false
+        accessView.titleLabel.text = "Health Access"
         return accessView
     }()
 
@@ -51,11 +53,11 @@ class SetupViewController: UIViewController {
         let constraints = [
             calendarView.leftAnchor.constraint(equalTo: view.leftAnchor),
             calendarView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            calendarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            calendarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
 
             healthView.leftAnchor.constraint(equalTo: view.leftAnchor),
             healthView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            healthView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 60)
+            healthView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 30)
         ]
         NSLayoutConstraint.activate(constraints)
 

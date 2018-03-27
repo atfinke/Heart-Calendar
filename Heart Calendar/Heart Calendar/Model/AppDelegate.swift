@@ -24,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Crashlytics.start(withAPIKey: key)
 
         UINavigationBar.appearance().tintColor = .white
-        UINavigationBar.appearance().barTintColor = UIColor(red: 255.0/255.0,
-                                                            green: 70.0/255.0,
+        UINavigationBar.appearance().barTintColor = UIColor(red: 180.0/255.0,
+                                                            green: 40.0/255.0,
                                                             blue: 60.0/255.0,
                                                             alpha: 1.0)
 

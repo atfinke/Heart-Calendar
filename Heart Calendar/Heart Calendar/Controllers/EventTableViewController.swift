@@ -39,7 +39,7 @@ class EventTableViewController: UITableViewController {
                 if let controller = self.preferencesController {
                     controller.calendars = self.model.calendars()
                 } else if PreferencesManager.shared.completedSetup {
-                    self.reload(animated: true, completion: nil)
+                    self.reload(completion: nil)
                 }
             }
         }
@@ -72,7 +72,7 @@ class EventTableViewController: UITableViewController {
             controller.completed = { [weak self] in
                 PreferencesManager.shared.completedSetup = true
                 self?.dismiss(animated: true, completion: nil)
-                self?.reload(animated: true, completion: nil)
+                self?.reload(completion: nil)
             }
             let navController = UINavigationController(rootViewController: controller)
             navigationController?.present(navController, animated: false, completion: nil)
@@ -83,24 +83,28 @@ class EventTableViewController: UITableViewController {
 
     @objc
     func controlReload() {
-        reload(animated: false, completion: nil)
+        reload(completion: nil)
         Answers.logCustomEvent(withName: "Reload-RefreshControl", customAttributes: nil)
     }
 
-    func reload(animated: Bool, completion: (() -> Void)?) {
-        isUpdatingModel = true
+    func reload(completion: (() -> Void)?) {
         let startDate = Date()
+        isUpdatingModel = true
 
         DispatchQueue.global(qos: .userInitiated).async {
-            self.model.update {
+            self.model.update { needsUpdate in
                 DispatchQueue.main.async {
                     func complete() {
                         self.isUpdatingModel = false
-
-                        self.tableView.reloadData()
                         self.tableView.refreshControl?.endRefreshing()
 
-                        if animated && !self.model.validEvents.isEmpty {
+                        guard needsUpdate else {
+                            completion?()
+                            return
+                        }
+
+                        self.tableView.reloadData()
+                        if !self.model.validEvents.isEmpty {
                             let lastIndex = PreferencesManager.shared.shouldHideEmptyEvents ? 0 : 1
                             self.tableView.reloadSections(IndexSet(integersIn: 0...lastIndex), with: .fade)
                         }
@@ -117,6 +121,7 @@ class EventTableViewController: UITableViewController {
                 }
             }
         }
+
         Answers.logCustomEvent(withName: "Reload-Method", customAttributes: nil)
     }
 
@@ -150,11 +155,10 @@ class EventTableViewController: UITableViewController {
             reviewTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false, block: { _ in
                 DispatchQueue.main.async {
                     if self.preferencesController == nil &&
-                        -PreferencesManager.shared.lastPromptDate.timeIntervalSinceNow > 60 * 60 * 2 {
+                        -PreferencesManager.shared.lastPromptDate.timeIntervalSinceNow > 60 * 2 {
                         PreferencesManager.shared.lastPromptDate = Date()
                         SKStoreReviewController.requestReview()
                     }
-                    print(-PreferencesManager.shared.lastPromptDate.timeIntervalSinceNow)
                 }
             })
         }
@@ -168,7 +172,7 @@ class EventTableViewController: UITableViewController {
             }
 
             DispatchQueue.main.async {
-                self?.reload(animated: false, completion: {
+                self?.reload() {
                     self?.dismiss(animated: true, completion: nil)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
                         if let indexPath = self?.tableView.indexPathForRow(at: .zero) {
@@ -176,7 +180,7 @@ class EventTableViewController: UITableViewController {
                         }
                     })
                     scheduleReview()
-                })
+                }
             }
 
         }

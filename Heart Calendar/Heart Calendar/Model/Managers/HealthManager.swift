@@ -13,17 +13,15 @@ class HealthManager {
 
     // MARK: - Types
 
-    struct HeartRateMeasure {
+    struct HeartRateMeasure: Equatable {
 
         // MARK: - Properties
 
         let average: Int
-        let startDate: Date
-        let endDate: Date
 
         // MARK: - Initialization
 
-        fileprivate init?(statistics: HKStatistics, startDate: Date, endDate: Date) {
+        fileprivate init?(statistics: HKStatistics) {
             let unit = HKUnit.count().unitDivided(by: HKUnit.minute())
 
             guard let average = statistics.averageQuantity()?.doubleValue(for: unit) else {
@@ -31,8 +29,10 @@ class HealthManager {
             }
 
             self.average = Int(average)
-            self.startDate = startDate
-            self.endDate = endDate
+        }
+
+        static func ==(lhs: HeartRateMeasure, rhs: HeartRateMeasure) -> Bool {
+            return lhs.average == rhs.average
         }
     }
 
@@ -68,10 +68,8 @@ class HealthManager {
                                                         completion(nil)
                                                         return
                                                     }
-                                                    let measure = HeartRateMeasure(statistics: statistics,
-                                                                                   startDate: startDate,
-                                                                                   endDate: endDate)
-
+                                        
+                                                    let measure = HeartRateMeasure(statistics: statistics)
                                                     completion(measure)
 
         }

@@ -106,8 +106,6 @@ extension PreferencesTableViewController {
                 PreferencesManager.shared.calendarIdentifiers = calendarIdentifiers
             }
             tableView.reloadRows(at: [indexPath], with: .none)
-            Answers.logCustomEvent(withName: "Preferences-Calendars",
-                                   customAttributes: ["Count": calendarIdentifiers.count.description])
         } else if indexPath.section == 1 {
             PreferencesManager.shared.sortStyle = PreferencesManager.SortStyle.all[indexPath.row]
             tableView.reloadSections(IndexSet(integer: 1), with: .none)
