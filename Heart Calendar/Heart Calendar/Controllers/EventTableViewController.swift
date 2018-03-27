@@ -39,7 +39,7 @@ class EventTableViewController: UITableViewController {
                 if let controller = self.preferencesController {
                     controller.calendars = self.model.calendars()
                 } else if PreferencesManager.shared.completedSetup {
-                    self.reload(completion: nil)
+                    self.reload(animated: true, completion: nil)
                 }
             }
         }
@@ -72,7 +72,7 @@ class EventTableViewController: UITableViewController {
             controller.completed = { [weak self] in
                 PreferencesManager.shared.completedSetup = true
                 self?.dismiss(animated: true, completion: nil)
-                self?.reload(completion: nil)
+                self?.reload(animated: true, completion: nil)
             }
             let navController = UINavigationController(rootViewController: controller)
             navigationController?.present(navController, animated: false, completion: nil)
@@ -83,11 +83,11 @@ class EventTableViewController: UITableViewController {
 
     @objc
     func controlReload() {
-        reload(completion: nil)
+        reload(animated: false, completion: nil)
         Answers.logCustomEvent(withName: "Reload-RefreshControl", customAttributes: nil)
     }
 
-    func reload(completion: (() -> Void)?) {
+    func reload(animated: Bool, completion: (() -> Void)?) {
         isUpdatingModel = true
         let startDate = Date()
 
@@ -100,8 +100,11 @@ class EventTableViewController: UITableViewController {
                         self.tableView.reloadData()
                         self.tableView.refreshControl?.endRefreshing()
 
-                        let lastIndex = PreferencesManager.shared.shouldHideEmptyEvents ? 0 : 1
-                        self.tableView.reloadSections(IndexSet(integersIn: 0...lastIndex), with: .automatic)
+                        if animated {
+                            let lastIndex = PreferencesManager.shared.shouldHideEmptyEvents ? 0 : 1
+                            self.tableView.reloadSections(IndexSet(integersIn: 0...lastIndex), with: .fade)
+                        }
+
 
                         completion?()
                     }
@@ -167,7 +170,7 @@ class EventTableViewController: UITableViewController {
             }
 
             DispatchQueue.main.async {
-                self?.reload(completion: {
+                self?.reload(animated: false, completion: {
                     self?.dismiss(animated: true, completion: nil)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
                         if let indexPath = self?.tableView.indexPathForRow(at: .zero) {
