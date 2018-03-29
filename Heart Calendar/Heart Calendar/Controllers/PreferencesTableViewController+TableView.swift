@@ -59,6 +59,8 @@ extension PreferencesTableViewController {
             let calendarIdentifiers = PreferencesManager.shared.calendarIdentifiers ?? []
             cell.accessoryType = calendarIdentifiers.contains(calendar.identifier) ? .checkmark : .none
 
+            cell.accessibilityHint = "Tap to toggle if Heart Calendar should include events from this calendar."
+
             return cell
         } else if indexPath.section == 3 {
             //swiftlint:disable:next line_length
@@ -78,10 +80,14 @@ extension PreferencesTableViewController {
             let item = PreferencesManager.SortStyle.all[indexPath.row]
             cell.textLabel?.text = item.description
             cell.accessoryType = PreferencesManager.shared.sortStyle == item ? .checkmark : .none
+
+            cell.accessibilityHint = "Tap to set how Heart Calendar should sort calendar events."
         } else if indexPath.section == 2 {
             let item = PreferencesManager.Timespan.all[indexPath.row]
             cell.textLabel?.text = item.description
             cell.accessoryType = PreferencesManager.shared.timespan == item ? .checkmark : .none
+
+            cell.accessibilityHint = "Tap to set how far back Heart Calendar should look for calendar events."
         } else {
             fatalError()
         }

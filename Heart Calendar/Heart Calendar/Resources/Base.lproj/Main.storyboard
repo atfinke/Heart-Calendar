@@ -69,6 +69,7 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="e6X-4N-1Db">
                                 <rect key="frame" x="337" y="11" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Preferences"/>
                                 <connections>
                                     <segue destination="CAN-on-ELA" kind="presentation" identifier="showPreferences" id="HhH-ks-NgB"/>
                                 </connections>

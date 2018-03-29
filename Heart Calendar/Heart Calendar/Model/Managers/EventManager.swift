@@ -29,6 +29,9 @@ class EventManager {
         var calendarColor: UIColor {
             return UIColor(cgColor: event.calendar.cgColor)
         }
+        var calendarName: String {
+            return event.calendar.title
+        }
 
         init(_ event: EKEvent) {
             self.event = event
