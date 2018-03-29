@@ -31,6 +31,7 @@ class HealthManager {
             self.average = Int(average)
         }
 
+        //swiftlint:disable:next operator_whitespace
         static func ==(lhs: HeartRateMeasure, rhs: HeartRateMeasure) -> Bool {
             return lhs.average == rhs.average
         }
@@ -68,7 +69,7 @@ class HealthManager {
                                                         completion(nil)
                                                         return
                                                     }
-                                        
+
                                                     let measure = HeartRateMeasure(statistics: statistics)
                                                     completion(measure)
 

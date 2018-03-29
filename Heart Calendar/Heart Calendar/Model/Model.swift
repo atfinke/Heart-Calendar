@@ -17,6 +17,7 @@ class Model {
         let event: EventManager.Event
         let measure: HealthManager.HeartRateMeasure?
 
+        //swiftlint:disable:next operator_whitespace
         static func ==(lhs: HeartRateEvent, rhs: HeartRateEvent) -> Bool {
             return lhs.event == rhs.event && lhs.measure == rhs.measure
         }
@@ -84,10 +85,10 @@ class Model {
                     self.validEvents = sorted.validEvents
                     self.noDataEvents = sorted.noDataEvents
 
-                    let updatedDisplayPreferences = PreferencesManager.shared.shouldHideEmptyEvents != self.hidingNoDataEvents
+                    let updatedPreferences = PreferencesManager.shared.shouldHideEmptyEvents != self.hidingNoDataEvents
                     self.hidingNoDataEvents = PreferencesManager.shared.shouldHideEmptyEvents
 
-                    completion(newResults || updatedDisplayPreferences)
+                    completion(newResults || updatedPreferences)
                 }
             })
         }

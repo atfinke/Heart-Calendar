@@ -172,7 +172,7 @@ class EventTableViewController: UITableViewController {
             }
 
             DispatchQueue.main.async {
-                self?.reload() {
+                self?.reload {
                     self?.dismiss(animated: true, completion: nil)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
                         if let indexPath = self?.tableView.indexPathForRow(at: .zero) {

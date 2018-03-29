@@ -35,6 +35,10 @@ class ViewController: UIViewController {
     // MARK: - Actions
 
     @IBAction func pressedStart(_ sender: Any) {
+        guard ProcessInfo.processInfo.environment["SIMULATOR_DEVICE_NAME"] != nil else {
+            fatalError("This should NEVER be run on an actual device")
+        }
+
         for calendar in eventStore.calendars(for: .event) {
             do {
                 try eventStore.removeCalendar(calendar, commit: true)
@@ -113,7 +117,7 @@ class ViewController: UIViewController {
             print(error)
         }
     }
-    
+
     @IBAction func pressedHealthAccess(_ sender: Any) {
         let write = HKSampleType.quantityType(forIdentifier: .heartRate)!
         healthStore.requestAuthorization(toShare: Set([write]), read: nil) { (_, error) in
