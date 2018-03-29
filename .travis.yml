@@ -1,0 +1,16 @@
+language: objective-c
+osx_image: xcode9.2
+
+matrix:
+  include:
+    - env: SCHEME="'Heart Calendar'" TYPE="build"
+    - env: SCHEME="'Heart Data Mock'" TYPE="build"
+
+
+before_install:
+  - chmod +x install_swiftlint.sh
+install:
+  - ./install_swiftlint.sh
+
+script:
+  - "xcodebuild clean $TYPE -workspace 'Heart Calendar.xcworkspace' -scheme $SCHEME -destination 'platform=iOS Simulator,name=iPhone X,OS=11.2'"
