@@ -59,7 +59,7 @@ extension PreferencesTableViewController {
             let calendarIdentifiers = PreferencesManager.shared.calendarIdentifiers ?? []
             cell.accessoryType = calendarIdentifiers.contains(calendar.identifier) ? .checkmark : .none
 
-            cell.accessibilityHint = "Tap to toggle if Heart Calendar should include events from this calendar."
+            cell.accessibilityHint = "Toggles if events should be included from this calendar."
 
             return cell
         } else if indexPath.section == 3 {
@@ -81,13 +81,13 @@ extension PreferencesTableViewController {
             cell.textLabel?.text = item.description
             cell.accessoryType = PreferencesManager.shared.sortStyle == item ? .checkmark : .none
 
-            cell.accessibilityHint = "Tap to set how Heart Calendar should sort calendar events."
+            cell.accessibilityHint = "Sets how calendar events should be sorted."
         } else if indexPath.section == 2 {
             let item = PreferencesManager.Timespan.all[indexPath.row]
             cell.textLabel?.text = item.description
             cell.accessoryType = PreferencesManager.shared.timespan == item ? .checkmark : .none
 
-            cell.accessibilityHint = "Tap to set how far back Heart Calendar should look for calendar events."
+            cell.accessibilityHint = "Sets how far back Heart Calendar should look for calendar events."
         } else {
             fatalError()
         }
