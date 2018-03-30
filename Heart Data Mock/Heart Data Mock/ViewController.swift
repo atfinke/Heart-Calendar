@@ -114,14 +114,14 @@ class ViewController: UIViewController {
 
     @IBAction func pressedEventAccess(_ sender: Any) {
         eventStore.requestAccess(to: .event) { (_, error) in
-            print(error)
+            print(error?.localizedDescription as Any)
         }
     }
 
     @IBAction func pressedHealthAccess(_ sender: Any) {
         let write = HKSampleType.quantityType(forIdentifier: .heartRate)!
         healthStore.requestAuthorization(toShare: Set([write]), read: nil) { (_, error) in
-            print(error)
+            print(error?.localizedDescription as Any)
         }
     }
 

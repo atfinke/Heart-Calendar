@@ -61,9 +61,9 @@ class PreferencesManager {
         }
     }
 
-    var lastPromptDate: Date {
+    var lastReviewPromptDate: Date {
         didSet {
-            defaults.set(lastPromptDate, forKey: "lastPromptDate")
+            defaults.set(lastReviewPromptDate, forKey: "lastReviewPromptDate")
         }
     }
 
@@ -100,7 +100,7 @@ class PreferencesManager {
 
     init() {
         self.completedSetup = defaults.bool(forKey: "completedSetup")
-        self.lastPromptDate = defaults.object(forKey: "lastPromptDate") as? Date ?? Date()
+        self.lastReviewPromptDate = defaults.object(forKey: "lastReviewPromptDate") as? Date ?? Date()
         self.calendarIdentifiers = defaults.array(forKey: "calendarIdentifiers") as? [String]
 
         // Load Sort Style

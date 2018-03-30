@@ -26,7 +26,6 @@ class EventTableViewCell: IndicatorTableViewCell {
         let titleFont = UIFont.systemFont(ofSize: 20, weight: .medium)
         eventTitleLabel.font = UIFontMetrics(forTextStyle: .title1).scaledFont(for: titleFont)
         eventTitleLabel.numberOfLines = 0
-        eventTitleLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
 
         let dateFont = UIFont.systemFont(ofSize: 17, weight: .regular)
         eventDateLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: dateFont)

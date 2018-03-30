@@ -53,7 +53,6 @@ class EventTableViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         if PreferencesManager.shared.completedSetup {
             model.authorizeEvents { eventSuccess, _ in
                 self.model.authorizeHealth { healthSuccess, _ in
@@ -70,7 +69,7 @@ class EventTableViewController: UITableViewController {
         } else {
             let controller = SetupTableViewController()
             controller.model = model
-            controller.completed = { [weak self] in
+            controller.setupCompleted = { [weak self] in
                 PreferencesManager.shared.completedSetup = true
                 self?.dismiss(animated: true, completion: nil)
                 self?.reload(completion: nil)
@@ -162,8 +161,8 @@ class EventTableViewController: UITableViewController {
             reviewTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false, block: { _ in
                 DispatchQueue.main.async {
                     if self.preferencesController == nil &&
-                        -PreferencesManager.shared.lastPromptDate.timeIntervalSinceNow > 60 * 2 {
-                        PreferencesManager.shared.lastPromptDate = Date()
+                        -PreferencesManager.shared.lastReviewPromptDate.timeIntervalSinceNow > 60 * 2 {
+                        PreferencesManager.shared.lastReviewPromptDate = Date()
                         SKStoreReviewController.requestReview()
                     }
                 }

@@ -51,6 +51,7 @@ class SwitchTableViewCell: UITableViewCell {
         let constraints = [
             infoLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15),
             infoLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
+
             leftMarginConstraint,
             infoLabel.rightAnchor.constraint(equalTo: preferenceSwitch.leftAnchor,
                                              constant: -5),
