@@ -61,9 +61,9 @@ class PreferencesManager {
         }
     }
 
-    var lastPromptDate: Date {
+    var lastReviewPromptDate: Date {
         didSet {
-            defaults.set(lastPromptDate, forKey: "lastPromptDate")
+            defaults.set(lastReviewPromptDate, forKey: "lastReviewPromptDate")
         }
     }
 
@@ -85,9 +85,9 @@ class PreferencesManager {
         }
     }
 
-    var shouldHideEmptyEvents: Bool {
+    var shouldHideNoDataEvents: Bool {
         didSet {
-            defaults.set(shouldHideEmptyEvents, forKey: "shouldHideNoDataEvents")
+            defaults.set(shouldHideNoDataEvents, forKey: "shouldHideNoDataEvents")
         }
     }
 
@@ -100,7 +100,7 @@ class PreferencesManager {
 
     init() {
         self.completedSetup = defaults.bool(forKey: "completedSetup")
-        self.lastPromptDate = defaults.object(forKey: "lastPromptDate") as? Date ?? Date()
+        self.lastReviewPromptDate = defaults.object(forKey: "lastReviewPromptDate") as? Date ?? Date()
         self.calendarIdentifiers = defaults.array(forKey: "calendarIdentifiers") as? [String]
 
         // Load Sort Style
@@ -121,7 +121,7 @@ class PreferencesManager {
         }
         self.timespan = timespan
 
-        self.shouldHideEmptyEvents = defaults.bool(forKey: "shouldHideNoDataEvents")
+        self.shouldHideNoDataEvents = defaults.bool(forKey: "shouldHideNoDataEvents")
     }
 
 }

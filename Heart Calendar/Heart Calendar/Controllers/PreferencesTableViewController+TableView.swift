@@ -59,6 +59,8 @@ extension PreferencesTableViewController {
             let calendarIdentifiers = PreferencesManager.shared.calendarIdentifiers ?? []
             cell.accessoryType = calendarIdentifiers.contains(calendar.identifier) ? .checkmark : .none
 
+            cell.accessibilityHint = "Toggles if events should be included from this calendar."
+
             return cell
         } else if indexPath.section == 3 {
             //swiftlint:disable:next line_length
@@ -66,7 +68,7 @@ extension PreferencesTableViewController {
                 fatalError()
             }
             cell.infoLabel.text = "Hide events with no BPM data"
-            cell.preferenceSwitch.isOn = PreferencesManager.shared.shouldHideEmptyEvents
+            cell.preferenceSwitch.isOn = PreferencesManager.shared.shouldHideNoDataEvents
             cell.preferenceSwitch.addTarget(self, action: #selector(switchToggled(sender:)), for: .valueChanged)
 
             return cell
@@ -78,10 +80,14 @@ extension PreferencesTableViewController {
             let item = PreferencesManager.SortStyle.all[indexPath.row]
             cell.textLabel?.text = item.description
             cell.accessoryType = PreferencesManager.shared.sortStyle == item ? .checkmark : .none
+
+            cell.accessibilityHint = "Sets how calendar events should be sorted."
         } else if indexPath.section == 2 {
             let item = PreferencesManager.Timespan.all[indexPath.row]
             cell.textLabel?.text = item.description
             cell.accessoryType = PreferencesManager.shared.timespan == item ? .checkmark : .none
+
+            cell.accessibilityHint = "Sets how far back Heart Calendar should look for calendar events."
         } else {
             fatalError()
         }

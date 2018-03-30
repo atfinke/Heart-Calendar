@@ -42,11 +42,11 @@ class PreferencesTableViewController: UITableViewController {
 
     @objc
     func switchToggled(sender: UISwitch) {
-        PreferencesManager.shared.shouldHideEmptyEvents = sender.isOn
+        PreferencesManager.shared.shouldHideNoDataEvents = sender.isOn
         preferencesUpdated = true
         UISelectionFeedbackGenerator().selectionChanged()
 
-        let description = PreferencesManager.shared.shouldHideEmptyEvents.description
+        let description = PreferencesManager.shared.shouldHideNoDataEvents.description
         Answers.logCustomEvent(withName: "Preferences-HideEmptyEvents",
                                customAttributes: ["HideEmptyEvents": description])
     }

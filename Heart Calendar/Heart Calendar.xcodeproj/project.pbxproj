@@ -15,8 +15,8 @@
 		146C04D220686FC6005B58DE /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04D120686FC6005B58DE /* CalendarTableViewCell.swift */; };
 		146C04D420687013005B58DE /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04D320687013005B58DE /* PreferencesManager.swift */; };
 		146C04DC2068841A005B58DE /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04DB2068841A005B58DE /* SwitchTableViewCell.swift */; };
-		146C04E9206887EF005B58DE /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04E2206887EE005B58DE /* SetupViewController.swift */; };
-		146C04EE20689411005B58DE /* AccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04ED20689411005B58DE /* AccessView.swift */; };
+		146C04E9206887EF005B58DE /* SetupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04E2206887EE005B58DE /* SetupTableViewController.swift */; };
+		146C04EE20689411005B58DE /* AccessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04ED20689411005B58DE /* AccessTableViewCell.swift */; };
 		146C04F02068A3A3005B58DE /* AlertConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04EF2068A3A3005B58DE /* AlertConstants.swift */; };
 		146C04F22068AA36005B58DE /* EventTableViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04F12068AA36005B58DE /* EventTableViewController+TableView.swift */; };
 		146C04F42068AA8F005B58DE /* PreferencesTableViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C04F32068AA8F005B58DE /* PreferencesTableViewController+TableView.swift */; };
@@ -41,8 +41,8 @@
 		146C04D120686FC6005B58DE /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		146C04D320687013005B58DE /* PreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
 		146C04DB2068841A005B58DE /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
-		146C04E2206887EE005B58DE /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
-		146C04ED20689411005B58DE /* AccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessView.swift; sourceTree = "<group>"; };
+		146C04E2206887EE005B58DE /* SetupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupTableViewController.swift; sourceTree = "<group>"; };
+		146C04ED20689411005B58DE /* AccessTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTableViewCell.swift; sourceTree = "<group>"; };
 		146C04EF2068A3A3005B58DE /* AlertConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertConstants.swift; sourceTree = "<group>"; };
 		146C04F12068AA36005B58DE /* EventTableViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventTableViewController+TableView.swift"; sourceTree = "<group>"; };
 		146C04F32068AA8F005B58DE /* PreferencesTableViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesTableViewController+TableView.swift"; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 		146C04D5206870D1005B58DE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				146C04ED20689411005B58DE /* AccessView.swift */,
+				146C04ED20689411005B58DE /* AccessTableViewCell.swift */,
 				146C04D120686FC6005B58DE /* CalendarTableViewCell.swift */,
 				146C04CB206861D6005B58DE /* EventTableViewCell.swift */,
 				146C04CF20686609005B58DE /* IndicatorTableViewCell.swift */,
@@ -95,7 +95,7 @@
 				146C04F12068AA36005B58DE /* EventTableViewController+TableView.swift */,
 				146C04CD2068657A005B58DE /* PreferencesTableViewController.swift */,
 				146C04F32068AA8F005B58DE /* PreferencesTableViewController+TableView.swift */,
-				146C04E2206887EE005B58DE /* SetupViewController.swift */,
+				146C04E2206887EE005B58DE /* SetupTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -301,9 +301,9 @@
 			files = (
 				146C04F42068AA8F005B58DE /* PreferencesTableViewController+TableView.swift in Sources */,
 				146C04D420687013005B58DE /* PreferencesManager.swift in Sources */,
-				146C04E9206887EF005B58DE /* SetupViewController.swift in Sources */,
+				146C04E9206887EF005B58DE /* SetupTableViewController.swift in Sources */,
 				146C04CC206861D6005B58DE /* EventTableViewCell.swift in Sources */,
-				146C04EE20689411005B58DE /* AccessView.swift in Sources */,
+				146C04EE20689411005B58DE /* AccessTableViewCell.swift in Sources */,
 				146C04F22068AA36005B58DE /* EventTableViewController+TableView.swift in Sources */,
 				146C04DC2068841A005B58DE /* SwitchTableViewCell.swift in Sources */,
 				14CCF401202C086300DCFF48 /* EventManager.swift in Sources */,

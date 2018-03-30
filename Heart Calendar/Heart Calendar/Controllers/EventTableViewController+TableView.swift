@@ -16,7 +16,7 @@ extension EventTableViewController {
         if shouldShowInfoCell() {
             return 1
         } else {
-            return PreferencesManager.shared.shouldHideEmptyEvents ? 1 : 2
+            return PreferencesManager.shared.shouldHideNoDataEvents ? 1 : 2
         }
     }
 
@@ -44,7 +44,6 @@ extension EventTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if shouldShowInfoCell() {
-            //swiftlint:disable:next line_length
             let cell = tableView.dequeueReusableCell(withIdentifier: "infoReuseIdentifier", for: indexPath)
             cell.textLabel?.text = isUpdatingModel ? "Loading Events..." : "No Events Found"
             return cell
@@ -66,13 +65,21 @@ extension EventTableViewController {
 
         cell.indicatorView.backgroundColor = event.event.calendarColor
         cell.eventTitleLabel.text = event.event.title
-        cell.eventDateLabel.text = formatter.string(from: event.event.startDate, to: event.event.endDate)
 
+        let dateString = formatter.string(from: event.event.startDate, to: event.event.endDate)
+        cell.eventDateLabel.text = dateString
+
+        var voiceOverString = event.event.title
         if let measure = event.measure?.average {
-            cell.averageBPMLabel.text = Int(measure).description
+            let measureString = Int(measure).description
+            cell.averageBPMLabel.text = measureString
+            voiceOverString += ". Average BPM: \(measureString) beats per minute. "
         } else if indexPath.section == 1 {
             cell.averageBPMLabel.text = "-"
+            voiceOverString += ". No BPM data. "
         }
+        voiceOverString +=  "Occured on " + dateString + ". \(event.event.calendarName) calendar."
+        cell.accessibilityLabel = voiceOverString
 
         return cell
     }
