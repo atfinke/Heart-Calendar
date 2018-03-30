@@ -94,10 +94,9 @@ class AccessView: UIView {
         pressed?()
     }
 
-    func disableButton(title: String) {
+    func disableButton() {
         button.isEnabled = false
         button.backgroundColor = button.backgroundColor?.withAlphaComponent(0.75)
-        button.setTitle(title, for: .normal)
     }
 
 }

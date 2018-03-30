@@ -86,13 +86,11 @@ class EventManager {
     // MARK: - Properties
 
     private let eventStore = EKEventStore()
-    private var isAuthenticated = false
 
     // MARK: - Methods
 
     func authorize(completion: @escaping (Bool, Error?) -> Void) {
         eventStore.requestAccess(to: .event) { (success, error) in
-            self.isAuthenticated = true
             completion(success, error)
         }
     }

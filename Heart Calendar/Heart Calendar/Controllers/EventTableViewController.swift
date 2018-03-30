@@ -26,6 +26,7 @@ class EventTableViewController: UITableViewController {
 
     private var reviewTimer: Timer?
     private var preferencesController: PreferencesTableViewController?
+    private var isHidingNoDataEvents = PreferencesManager.shared.shouldHideNoDataEvents
 
     // MARK: - View Life Cycle
 
@@ -98,19 +99,25 @@ class EventTableViewController: UITableViewController {
                         self.isUpdatingModel = false
                         self.tableView.refreshControl?.endRefreshing()
 
-                        guard needsUpdate else {
+                        // Update the table if the user has updated the hiding no data events preference
+                        let shouldHideNoDataEvents = PreferencesManager.shared.shouldHideNoDataEvents
+                        let updatedHidingPreferences = shouldHideNoDataEvents != self.isHidingNoDataEvents
+                        self.isHidingNoDataEvents = shouldHideNoDataEvents
+
+                        guard needsUpdate || updatedHidingPreferences else {
                             completion?()
                             return
                         }
 
                         self.tableView.reloadData()
                         if !self.model.validEvents.isEmpty {
-                            let lastIndex = PreferencesManager.shared.shouldHideEmptyEvents ? 0 : 1
+                            let lastIndex = PreferencesManager.shared.shouldHideNoDataEvents ? 0 : 1
                             self.tableView.reloadSections(IndexSet(integersIn: 0...lastIndex), with: .fade)
                         }
                         completion?()
                     }
 
+                    // Ensures that the refresh control doesn't get into a bad state
                     if -startDate.timeIntervalSinceNow < 0.5 {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                             complete()
@@ -129,7 +136,7 @@ class EventTableViewController: UITableViewController {
 
     func shouldShowInfoCell() -> Bool {
         return model.validEvents.isEmpty &&
-            (model.noDataEvents.isEmpty || PreferencesManager.shared.shouldHideEmptyEvents)
+            (model.noDataEvents.isEmpty || PreferencesManager.shared.shouldHideNoDataEvents)
     }
 
     func presentAlert(title: String, message: String) {

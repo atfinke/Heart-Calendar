@@ -25,6 +25,7 @@ class SetupViewController: UIViewController {
         let text = "Heart Calendar needs access to your calendar to read event titles and dates."
         accessView.descriptionLabel.text = text
         accessView.titleLabel.text = "Calendar Access"
+        accessView.button.setTitle("Calendar Access Granted", for: UIControlState.disabled)
         return accessView
     }()
 
@@ -35,6 +36,7 @@ class SetupViewController: UIViewController {
         let text = "Heart Calendar needs access to your heart rate infomation."
         accessView.descriptionLabel.text = text
         accessView.titleLabel.text = "Health Access"
+        accessView.button.setTitle("Health Access Granted", for: .disabled)
         return accessView
     }()
 
@@ -66,7 +68,7 @@ class SetupViewController: UIViewController {
                 DispatchQueue.main.async {
                     if success {
                         UINotificationFeedbackGenerator().notificationOccurred(.success)
-                        self?.calendarView.disableButton(title: "Calendar Access Granted")
+                        self?.calendarView.disableButton()
                         self?.isCalendarAuthenticated = true
                         self?.checkAuthentication()
                     } else {
@@ -83,7 +85,7 @@ class SetupViewController: UIViewController {
                 DispatchQueue.main.async {
                     if success {
                         UINotificationFeedbackGenerator().notificationOccurred(.success)
-                        self?.healthView.disableButton(title: "Health Access Granted")
+                        self?.healthView.disableButton()
                         self?.isHealthAuthenticated = true
                         self?.checkAuthentication()
                     } else {

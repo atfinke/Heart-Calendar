@@ -25,8 +25,6 @@ class Model {
 
     // MARK: - Properties
 
-    private var hidingNoDataEvents = PreferencesManager.shared.shouldHideEmptyEvents
-
     private(set) var validEvents = [HeartRateEvent]()
     private(set) var noDataEvents = [HeartRateEvent]()
 
@@ -50,7 +48,7 @@ class Model {
             .sorted { $0.title.lowercased() < $1.title.lowercased() }
     }
 
-    func update(completion: @escaping ((Bool) -> Void)) {
+    func update(completion: @escaping ((_ newResults: Bool) -> Void)) {
         guard !Thread.isMainThread else { fatalError("Called on main thread") }
         Answers.logCustomEvent(withName: "Model-Update", customAttributes: nil)
 
@@ -80,15 +78,13 @@ class Model {
 
                 if newNoDataEvents.count + newValidEvents.count == calendarEvents.count {
                     let sorted = self.sort(validEvents: newValidEvents, noDataEvents: newNoDataEvents)
-                    let newResults = self.validEvents != sorted.validEvents || self.noDataEvents != sorted.noDataEvents
+
+                    let newResults = self.validEvents != sorted.validEvents ||
+                        self.noDataEvents != sorted.noDataEvents
 
                     self.validEvents = sorted.validEvents
                     self.noDataEvents = sorted.noDataEvents
-
-                    let updatedPreferences = PreferencesManager.shared.shouldHideEmptyEvents != self.hidingNoDataEvents
-                    self.hidingNoDataEvents = PreferencesManager.shared.shouldHideEmptyEvents
-
-                    completion(newResults || updatedPreferences)
+                    completion(newResults)
                 }
             })
         }

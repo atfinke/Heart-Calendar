@@ -85,9 +85,9 @@ class PreferencesManager {
         }
     }
 
-    var shouldHideEmptyEvents: Bool {
+    var shouldHideNoDataEvents: Bool {
         didSet {
-            defaults.set(shouldHideEmptyEvents, forKey: "shouldHideNoDataEvents")
+            defaults.set(shouldHideNoDataEvents, forKey: "shouldHideNoDataEvents")
         }
     }
 
@@ -121,7 +121,7 @@ class PreferencesManager {
         }
         self.timespan = timespan
 
-        self.shouldHideEmptyEvents = defaults.bool(forKey: "shouldHideNoDataEvents")
+        self.shouldHideNoDataEvents = defaults.bool(forKey: "shouldHideNoDataEvents")
     }
 
 }

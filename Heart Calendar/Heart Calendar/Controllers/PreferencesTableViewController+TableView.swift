@@ -68,7 +68,7 @@ extension PreferencesTableViewController {
                 fatalError()
             }
             cell.infoLabel.text = "Hide events with no BPM data"
-            cell.preferenceSwitch.isOn = PreferencesManager.shared.shouldHideEmptyEvents
+            cell.preferenceSwitch.isOn = PreferencesManager.shared.shouldHideNoDataEvents
             cell.preferenceSwitch.addTarget(self, action: #selector(switchToggled(sender:)), for: .valueChanged)
 
             return cell

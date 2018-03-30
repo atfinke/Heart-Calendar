@@ -16,7 +16,7 @@ extension EventTableViewController {
         if shouldShowInfoCell() {
             return 1
         } else {
-            return PreferencesManager.shared.shouldHideEmptyEvents ? 1 : 2
+            return PreferencesManager.shared.shouldHideNoDataEvents ? 1 : 2
         }
     }
 
