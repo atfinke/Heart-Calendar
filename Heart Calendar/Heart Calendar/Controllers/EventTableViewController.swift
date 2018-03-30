@@ -68,7 +68,7 @@ class EventTableViewController: UITableViewController {
             }
 
         } else {
-            let controller = SetupViewController()
+            let controller = SetupTableViewController()
             controller.model = model
             controller.completed = { [weak self] in
                 PreferencesManager.shared.completedSetup = true

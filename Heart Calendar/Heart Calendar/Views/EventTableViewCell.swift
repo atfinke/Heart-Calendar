@@ -23,14 +23,19 @@ class EventTableViewCell: IndicatorTableViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
-        eventTitleLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        let titleFont = UIFont.systemFont(ofSize: 20, weight: .medium)
+        eventTitleLabel.font = UIFontMetrics(forTextStyle: .title1).scaledFont(for: titleFont)
         eventTitleLabel.numberOfLines = 0
+        eventTitleLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
 
-        eventDateLabel.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        eventDateLabel.adjustsFontSizeToFitWidth = true
+        let dateFont = UIFont.systemFont(ofSize: 17, weight: .regular)
+        eventDateLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: dateFont)
+        eventDateLabel.numberOfLines = 0
 
-        averageBPMLabel.font = UIFont.systemFont(ofSize: 35, weight: .medium)
+        let bpmFont = UIFont.systemFont(ofSize: 35, weight: .medium)
+        averageBPMLabel.font = UIFontMetrics(forTextStyle: .title1).scaledFont(for: bpmFont)
         averageBPMLabel.textAlignment = .right
+        averageBPMLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
 
         [eventTitleLabel, eventDateLabel, averageBPMLabel].forEach { view in
             view.translatesAutoresizingMaskIntoConstraints = false
@@ -60,7 +65,6 @@ class EventTableViewCell: IndicatorTableViewCell {
 
             averageBPMLabel.topAnchor.constraint(equalTo: topAnchor),
             averageBPMLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            averageBPMLabel.widthAnchor.constraint(equalToConstant: 65),
             rightMarginConstraint
         ]
 

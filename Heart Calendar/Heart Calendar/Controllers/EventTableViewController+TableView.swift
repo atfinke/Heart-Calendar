@@ -79,8 +79,6 @@ extension EventTableViewController {
             voiceOverString += ". No BPM data. "
         }
         voiceOverString +=  "Occured on " + dateString + ". \(event.event.calendarName) calendar."
-
-//        cell.isAccessibilityElement = false
         cell.accessibilityLabel = voiceOverString
 
         return cell

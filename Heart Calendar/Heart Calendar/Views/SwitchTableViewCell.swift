@@ -21,9 +21,12 @@ class SwitchTableViewCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
+        let font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        infoLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: font)
+
         infoLabel.numberOfLines = 0
-        infoLabel.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         infoLabel.translatesAutoresizingMaskIntoConstraints = false
+        infoLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         addSubview(infoLabel)
 
         preferenceSwitch.translatesAutoresizingMaskIntoConstraints = false
@@ -46,12 +49,11 @@ class SwitchTableViewCell: UITableViewCell {
                                                       constant: 0.0)
 
         let constraints = [
-            leftMarginConstraint,
-            infoLabel.rightAnchor.constraint(equalTo: preferenceSwitch.rightAnchor,
-                                             constant: -15),
-
             infoLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15),
             infoLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
+            leftMarginConstraint,
+            infoLabel.rightAnchor.constraint(equalTo: preferenceSwitch.leftAnchor,
+                                             constant: -5),
 
             preferenceSwitch.centerYAnchor.constraint(equalTo: centerYAnchor),
             rightMarginConstraint
