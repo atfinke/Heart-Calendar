@@ -22,7 +22,7 @@ class SwitchTableViewCell: UITableViewCell {
         super.init(coder: aDecoder)
 
         let font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        infoLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: font)
+        infoLabel.font = UIFontMetrics(forTextStyle: UIFont.TextStyle.body).scaledFont(for: font)
 
         infoLabel.numberOfLines = 0
         infoLabel.translatesAutoresizingMaskIntoConstraints = false

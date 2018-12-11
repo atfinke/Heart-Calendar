@@ -21,7 +21,7 @@ class AccessTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
 
         let font = UIFont.systemFont(ofSize: 24, weight: .medium)
-        label.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: font)
+        label.font = UIFontMetrics(forTextStyle: UIFont.TextStyle.headline).scaledFont(for: font)
         return label
     }()
 
@@ -31,7 +31,7 @@ class AccessTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
 
         let font = UIFont.systemFont(ofSize: 18, weight: .regular)
-        label.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: font)
+        label.font = UIFontMetrics(forTextStyle: UIFont.TextStyle.body).scaledFont(for: font)
         return label
     }()
 
@@ -41,10 +41,10 @@ class AccessTableViewCell: UITableViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
 
         let font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        button.titleLabel?.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: font)
+        button.titleLabel?.font = UIFontMetrics(forTextStyle: UIFont.TextStyle.body).scaledFont(for: font)
 
-        button.setTitleColor(.white, for: .normal)
-        button.setTitle("Grant Access", for: .normal)
+        button.setTitleColor(.white, for: UIControl.State.normal)
+        button.setTitle("Grant Access", for: UIControl.State.normal)
         button.titleLabel?.adjustsFontSizeToFitWidth = true
 
         button.backgroundColor = UIColor(red: 190/255.0,
@@ -58,7 +58,7 @@ class AccessTableViewCell: UITableViewCell {
 
     // MARK: - Initalization
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         addSubview(titleLabel)

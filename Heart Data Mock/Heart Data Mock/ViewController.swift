@@ -35,9 +35,10 @@ class ViewController: UIViewController {
     // MARK: - Actions
 
     @IBAction func pressedStart(_ sender: Any) {
-        guard ProcessInfo.processInfo.environment["SIMULATOR_DEVICE_NAME"] != nil else {
+
+        #if !targetEnvironment(simulator)
             fatalError("This should NEVER be run on an actual device")
-        }
+        #endif
 
         for calendar in eventStore.calendars(for: .event) {
             do {

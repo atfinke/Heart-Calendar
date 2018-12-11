@@ -33,7 +33,7 @@ class EventTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let name = NSNotification.Name.UIApplicationDidBecomeActive
+        let name = UIApplication.didBecomeActiveNotification
         //swiftlint:disable:next discarded_notification_center_observer
         NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { _ in
             DispatchQueue.main.async {
@@ -48,7 +48,7 @@ class EventTableViewController: UITableViewController {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = .white
         tableView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(controlReload), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(controlReload), for: UIControl.Event.valueChanged)
     }
 
     override func viewDidAppear(_ animated: Bool) {

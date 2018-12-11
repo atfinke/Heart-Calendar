@@ -69,7 +69,9 @@ extension PreferencesTableViewController {
             }
             cell.infoLabel.text = "Hide events with no BPM data"
             cell.preferenceSwitch.isOn = PreferencesManager.shared.shouldHideNoDataEvents
-            cell.preferenceSwitch.addTarget(self, action: #selector(switchToggled(sender:)), for: .valueChanged)
+            cell.preferenceSwitch.addTarget(self,
+                                            action: #selector(switchToggled(sender:)),
+                                            for: UIControl.Event.valueChanged)
 
             return cell
         }

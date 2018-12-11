@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         guard let url = Bundle.main.url(forResource: "fabric.apikey", withExtension: nil),
             let key = try? String(contentsOf: url).replacingOccurrences(of: "\n", with: "") else {
@@ -30,11 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                             alpha: 1.0)
 
         UINavigationBar.appearance().titleTextAttributes = [
-            .foregroundColor: UIColor.white
+            NSAttributedString.Key.foregroundColor: UIColor.white
         ]
 
         UINavigationBar.appearance().largeTitleTextAttributes = [
-            .foregroundColor: UIColor.white
+            NSAttributedString.Key.foregroundColor: UIColor.white
         ]
 
         return true

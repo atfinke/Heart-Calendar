@@ -25,7 +25,7 @@ class PreferencesTableViewController: UITableViewController {
     }
 
     private let loadingBarButtonItem: UIBarButtonItem = {
-        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        let activityView = UIActivityIndicatorView(style: .white)
         activityView.sizeToFit()
         return UIBarButtonItem(customView: activityView)
     }()

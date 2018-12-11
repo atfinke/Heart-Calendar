@@ -149,11 +149,16 @@ class SetupTableViewController: UITableViewController {
         let authorizationType = AuthorizationType.all[indexPath.row]
         cell.titleLabel.text = authorizationType.title
         cell.descriptionLabel.text = authorizationType.description
-        cell.button.setTitle(authorizationType.enabledText, for: .disabled)
+        cell.button.setTitle(authorizationType.enabledText, for: UIControl.State.disabled)
 
         switch authorizationType {
-        case .calendar: cell.button.addTarget(self, action: #selector(calendarButtonPressed(_:)), for: .touchUpInside)
-        case .health: cell.button.addTarget(self, action: #selector(healthButtonPressed(_:)), for: .touchUpInside)
+        case .calendar: cell.button.addTarget(self,
+                                              action: #selector(calendarButtonPressed(_:)),
+                                              for: UIControl.Event.touchUpInside)
+
+        case .health: cell.button.addTarget(self,
+                                            action: #selector(healthButtonPressed(_:)),
+                                            for: UIControl.Event.touchUpInside)
         }
 
         return cell

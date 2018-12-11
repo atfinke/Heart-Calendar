@@ -73,6 +73,7 @@ extension EventTableViewController {
         if let measure = event.measure?.average {
             let measureString = Int(measure).description
             cell.averageBPMLabel.text = measureString
+            cell.label.text = measureString
             voiceOverString += ". Average BPM: \(measureString) beats per minute. "
         } else if indexPath.section == 1 {
             cell.averageBPMLabel.text = "-"

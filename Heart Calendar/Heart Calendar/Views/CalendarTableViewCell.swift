@@ -23,7 +23,7 @@ class CalendarTableViewCell: IndicatorTableViewCell {
         overrideIndicatorWidth(width: 7)
 
         let font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        calendarTitleLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: font)
+        calendarTitleLabel.font = UIFontMetrics(forTextStyle: UIFont.TextStyle.body).scaledFont(for: font)
 
         calendarTitleLabel.numberOfLines = 0
         calendarTitleLabel.translatesAutoresizingMaskIntoConstraints = false
