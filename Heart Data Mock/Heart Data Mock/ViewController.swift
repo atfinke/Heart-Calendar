@@ -55,45 +55,45 @@ class ViewController: UIViewController {
 
         let workoutEvents = [
             Event(title: "Track",
-                  startDate: formatter.date(from: "03-21-2018 07:00")!,
+                  startDate: formatter.date(from: "01-21-2020 07:00")!,
                   duration: 2 * 60 * 60,
                   heartRate: 156),
             Event(title: "Tennis",
-                  startDate: formatter.date(from: "03-26-2018 15:00")!,
+                  startDate: formatter.date(from: "01-26-2020 15:00")!,
                   duration: 1.5 * 60 * 60,
                   heartRate: 135)
         ]
 
         let lifeEvents = [
             Event(title: "Apple Event",
-                  startDate: formatter.date(from: "03-27-2018 10:00")!,
+                  startDate: formatter.date(from: "01-27-2020 10:00")!,
                   duration: 2.5 * 60 * 60,
                   heartRate: 92),
             Event(title: "Game Night",
-                  startDate: formatter.date(from: "03-22-2018 22:00")!,
+                  startDate: formatter.date(from: "01-22-2020 22:00")!,
                   duration: 1.5 * 60 * 60,
                   heartRate: 72),
             Event(title: "Submit App",
-                  startDate: formatter.date(from: "03-20-2018 12:30")!,
+                  startDate: formatter.date(from: "01-20-2020 12:30")!,
                   duration: 0.5 * 60 * 60,
                   heartRate: 66),
             Event(title: "Draft Paper",
-                  startDate: formatter.date(from: "03-19-2018 12:30")!,
+                  startDate: formatter.date(from: "01-19-2020 12:30")!,
                   duration: 0.5 * 60 * 60,
                   heartRate: 54)
         ]
 
         let classEvents = [
             Event(title: "EECS 315: Discussion",
-                  startDate: formatter.date(from: "03-23-2018 14:00")!,
+                  startDate: formatter.date(from: "01-23-2020 14:00")!,
                   duration: 3 * 60 * 60,
                   heartRate: 60),
             Event(title: "EECS 315: Discussion",
-                  startDate: formatter.date(from: "03-16-2018 14:00")!,
+                  startDate: formatter.date(from: "01-16-2020 14:00")!,
                   duration: 3 * 60 * 60,
                   heartRate: 55),
             Event(title: "EECS 315: SIG",
-                  startDate: formatter.date(from: "03-20-2018 16:00")!,
+                  startDate: formatter.date(from: "01-20-2020 16:00")!,
                   duration: 1 * 60 * 60,
                   heartRate: 85)
         ]
