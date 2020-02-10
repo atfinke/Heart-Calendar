@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         guard let url = Bundle.main.url(forResource: "fabric.apikey", withExtension: nil),
             let key = try? String(contentsOf: url).replacingOccurrences(of: "\n", with: "") else {
@@ -24,18 +24,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Crashlytics.start(withAPIKey: key)
 
         UINavigationBar.appearance().tintColor = .white
-        UINavigationBar.appearance().barTintColor = UIColor(red: 180.0/255.0,
-                                                            green: 40.0/255.0,
-                                                            blue: 60.0/255.0,
-                                                            alpha: 1.0)
 
-        UINavigationBar.appearance().titleTextAttributes = [
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = UIColor(red: 180.0/255.0,
+                                             green: 40.0/255.0,
+                                             blue: 60.0/255.0,
+                                             alpha: 1.0)
+        appearance.largeTitleTextAttributes = [
             .foregroundColor: UIColor.white
         ]
-
-        UINavigationBar.appearance().largeTitleTextAttributes = [
+        appearance.titleTextAttributes = [
             .foregroundColor: UIColor.white
         ]
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().standardAppearance = appearance
 
         return true
     }

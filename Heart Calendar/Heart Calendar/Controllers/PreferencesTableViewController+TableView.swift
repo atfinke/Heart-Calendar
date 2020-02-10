@@ -104,7 +104,7 @@ extension PreferencesTableViewController {
         if indexPath.section == 0 {
             let calendar = calendars[indexPath.row]
             var calendarIdentifiers = PreferencesManager.shared.calendarIdentifiers ?? []
-            if let index = calendarIdentifiers.index(of: calendar.identifier) {
+            if let index = calendarIdentifiers.firstIndex(of: calendar.identifier) {
                 calendarIdentifiers.remove(at: index)
                 PreferencesManager.shared.calendarIdentifiers = calendarIdentifiers
             } else {

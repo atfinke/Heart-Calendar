@@ -75,29 +75,6 @@ class HealthManager {
 
         }
         healthStore.execute(query)
-
-//        let unit = HKUnit.count().unitDivided(by: HKUnit.minute())
-//        let anchoredQuery = HKAnchoredObjectQuery(type: heartQuantityType,
-//                                                  predicate: predicate,
-//                                                  anchor: nil,
-//                                                  limit: 0) { (_, samples, _, _, error) in
-//
-//
-//                                                    guard error == nil, let samples = samples else {
-//                                                        completion(nil)
-//                                                        return
-//                                                    }
-//
-//                                                    let quantitySample = samples.flatMap({ $0 as? HKQuantitySample })
-//
-//                                                    var totalBeats = 0.0
-//                                                    for sample in quantitySample {
-//                                                        let heartBeats = sample.quantity.doubleValue(for: unit)
-//                                                        totalBeats += heartBeats
-//                                                    }
-//                                                    let average = totalBeats / quantitySample.count
-//        }
-//        healthStore.execute(anchoredQuery)
     }
 
 }
