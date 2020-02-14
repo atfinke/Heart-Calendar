@@ -46,6 +46,7 @@ extension EventTableViewController {
         if shouldShowInfoCell() {
             let cell = tableView.dequeueReusableCell(withIdentifier: "infoReuseIdentifier", for: indexPath)
             cell.textLabel?.text = isUpdatingModel ? "Loading Events..." : "No Events Found"
+            cell.textLabel?.textColor = UIColor.label
             return cell
         }
 

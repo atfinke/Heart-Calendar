@@ -15,7 +15,7 @@ class AccessTableViewCell: UITableViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = #colorLiteral(red: 54.0/255.0, green: 54.0/255.0, blue: 54.0/255.0, alpha: 1.0)
+        label.textColor = UIColor.label
         label.translatesAutoresizingMaskIntoConstraints = false
 
         let font = UIFont.systemFont(ofSize: 24, weight: .medium)
