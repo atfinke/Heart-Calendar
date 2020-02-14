@@ -82,9 +82,9 @@ class AccessTableViewCell: UITableViewCell {
         let constraints = [
             leftMarginConstraint,
             rightMarginConstraint,
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 30),
 
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             descriptionLabel.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
             descriptionLabel.rightAnchor.constraint(equalTo: titleLabel.rightAnchor),
 

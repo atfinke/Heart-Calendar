@@ -156,7 +156,7 @@ class EventTableViewController: UITableViewController {
                 fatalError()
         }
         navController.isModalInPresentation = true
-        
+
         preferencesController = controller
         preferencesController?.calendars = model.calendars()
 
