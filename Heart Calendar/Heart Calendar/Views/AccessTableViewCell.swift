@@ -12,8 +12,6 @@ class AccessTableViewCell: UITableViewCell {
 
     // MARK: - Properties
 
-    var buttonPressed: ((UIButton) -> Void)?
-
     let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -58,7 +56,7 @@ class AccessTableViewCell: UITableViewCell {
 
     // MARK: - Initalization
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         addSubview(titleLabel)

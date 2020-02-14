@@ -33,7 +33,7 @@ class EventTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let name = NSNotification.Name.UIApplicationDidBecomeActive
+        let name = UIApplication.didBecomeActiveNotification
         //swiftlint:disable:next discarded_notification_center_observer
         NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { _ in
             DispatchQueue.main.async {
@@ -75,6 +75,9 @@ class EventTableViewController: UITableViewController {
                 self?.reload(completion: nil)
             }
             let navController = UINavigationController(rootViewController: controller)
+            navController.isModalInPresentation = true
+            navController.modalPresentationStyle = .fullScreen
+            navigationController?.navigationBar.isTranslucent = true
             navigationController?.present(navController, animated: false, completion: nil)
         }
     }
@@ -152,7 +155,8 @@ class EventTableViewController: UITableViewController {
             let controller = navController.viewControllers.first as? PreferencesTableViewController else {
                 fatalError()
         }
-
+        navController.isModalInPresentation = true
+        
         preferencesController = controller
         preferencesController?.calendars = model.calendars()
 

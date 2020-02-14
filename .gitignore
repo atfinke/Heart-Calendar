@@ -68,3 +68,5 @@ fastlane/test_output
 
 Heart Calendar/fabric.apikey
 Heart Calendar/fabric.buildsecret
+
+.DS_Store

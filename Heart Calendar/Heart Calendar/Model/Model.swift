@@ -70,7 +70,7 @@ class Model {
         for event in calendarEvents {
             healthManager.measure(between: event.startDate, and: event.endDate, completion: { measure in
                 let heartEvent = HeartRateEvent(event: event, measure: measure)
-                if measure != nil {
+                if let unwrapped = measure, unwrapped.average != 0 {
                     newValidEvents.append(heartEvent)
                 } else {
                     newNoDataEvents.append(heartEvent)
