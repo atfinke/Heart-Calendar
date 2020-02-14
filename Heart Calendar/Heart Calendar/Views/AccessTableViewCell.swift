@@ -15,7 +15,7 @@ class AccessTableViewCell: UITableViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = #colorLiteral(red: 54.0/255.0, green: 54.0/255.0, blue: 54.0/255.0, alpha: 1.0)
+        label.textColor = UIColor.label
         label.translatesAutoresizingMaskIntoConstraints = false
 
         let font = UIFont.systemFont(ofSize: 24, weight: .medium)
@@ -82,9 +82,9 @@ class AccessTableViewCell: UITableViewCell {
         let constraints = [
             leftMarginConstraint,
             rightMarginConstraint,
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 30),
 
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             descriptionLabel.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
             descriptionLabel.rightAnchor.constraint(equalTo: titleLabel.rightAnchor),
 
